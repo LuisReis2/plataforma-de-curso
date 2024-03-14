@@ -27,9 +27,9 @@ As funcionalidades iram variar de acordo com o privilégio do usuário.
 
 ### Páginas 
 
-![área publica](/imagens/areaPublica.PNG)
+![área publica](/imagens/AreaPublica.PNG)
 
-![área logada](/imagens/areaLogada.PNG)
+![área logada](/imagens/AreaLogada.PNG)
 
 ![curso](/imagens/Modulos.PNG)
 
@@ -40,4 +40,6 @@ As funcionalidades iram variar de acordo com o privilégio do usuário.
 ![criando usuário](/imagens/criaUser.PNG)
 
 ![perfil](/imagens/perfil.PNG)
+
+![área publica](/imagens/criaAula.PNG)
 
