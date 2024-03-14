@@ -17,7 +17,6 @@ As funcionalidades iram variar de acordo com o privilégio do usuário.
 ### Professor (coordenador de curso)
 - **Criação e gestão de módulos**: Permissão para criar módulos e configurar os detalhes dentro do curso.
 - **Gerenciamento de usuários**: Habilidade para adicionar e remover usuários do curso.
-- **Criação de avisos**: Capacidade de criar avisos que serão visíveis para os alunos no curso.
 
 ### Aluno (Basic user)
 - **Acesso ao conteúdo do curso**: Permissão para acessar os cursos, aulas e, possivelmente, atividades (em avaliação).
