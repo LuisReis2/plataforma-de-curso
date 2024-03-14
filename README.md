@@ -23,5 +23,5 @@ As funcionalidades iram variar de acordo com o privilégio do usuário.
 - **Acesso ao conteúdo do curso**: Permissão para acessar os cursos, aulas e, possivelmente, atividades (em avaliação).
 
 ### MER
-![MER](/imagens/MER.png)
+![MER](/imagens/imagens/MER.PNG)
 
