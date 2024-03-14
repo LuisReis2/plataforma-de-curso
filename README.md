@@ -25,3 +25,19 @@ As funcionalidades iram variar de acordo com o privilégio do usuário.
 ### MER
 ![MER](/imagens/MER.PNG)
 
+### Páginas 
+
+![área publica](/imagens/areaPublica.PNG)
+
+![área logada](/imagens/areaLogada.PNG)
+
+![curso](/imagens/Modulos.PNG)
+
+![alunos](/imagens/alunosCurso.PNG)
+
+![criando curso](/imagens/criaCurso.PNG)
+
+![criando usuário](/imagens/criaUser.PNG)
+
+![perfil](/imagens/perfil.PNG)
+
