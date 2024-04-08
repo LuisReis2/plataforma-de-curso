@@ -1,0 +1,21 @@
+<html>
+<body>
+
+<form action="/create-user" method="post">
+    <label for="user-name">Nome</label>
+    <input type="text" id="user-name" name="user-name">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email">
+    <label for="password">Senha</label>
+    <input type="text" id="password" name="password">
+    <label for="type">Tipo</label>
+    <select id="type" name="type">
+        <option value="ADM">Admin</option>
+        <option value="TEACHER">Professor</option>
+        <option value="STUDENT">Aluno</option>
+    </select>
+    <input type="submit" value="cadastrar">
+</form>
+</body>
+</html>
