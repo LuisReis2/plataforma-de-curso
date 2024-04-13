@@ -23,14 +23,9 @@ public class createUserServlet extends HttpServlet {
         String type = req.getParameter("type");
         User user = new User(username, email, password, type);
 
-        System.out.println("O nome do user é " + username);
-        System.out.println("Senha: " + password);
-        System.out.println("Email " + email);
-        System.out.println("tipo " + type);
+
         userDao userDao = new userDao();
         userDao.createUser(user);
         req.getRequestDispatcher("index.html").forward(req, resp);
-
-
     }
 }
