@@ -4,18 +4,17 @@ package br.com.curso.servlet;
 import br.com.curso.dao.userDao;
 import br.com.curso.model.User;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.IOException;
 
 @WebServlet("/create-user")
 public class createUserServlet extends HttpServlet {
 
     @java.lang.Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         String username = req.getParameter("user-name");
         String email = req.getParameter("email");
@@ -26,6 +25,8 @@ public class createUserServlet extends HttpServlet {
 
         userDao userDao = new userDao();
         userDao.createUser(user);
-        req.getRequestDispatcher("index.html").forward(req, resp);
+
+       // req.getRequestDispatcher("index.html").forward(req, resp);
+        resp.sendRedirect("/find-all-users");
     }
 }

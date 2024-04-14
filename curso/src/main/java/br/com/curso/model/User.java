@@ -13,6 +13,11 @@ public class User {
         this.userPass = pass;
         this.userType = type;
     }
+    public User(String name, String email, String type){ // OVERLOAD PARA O LIST SEM SENHA
+        this.userName = name;
+        this.userEmail = email;
+        this.userType = type;
+    }
     public String getUserName() {
         return userName;
     }
