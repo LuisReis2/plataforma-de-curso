@@ -66,4 +66,77 @@ public class userDao {
        }
 
     }
+
+    public List<String> listEmail() { // Vai retornar uma lista com os emails do banco de dados
+        String SQL = "SELECT  *  FROM USERS";
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+
+            System.out.println("SUCESS CONECTION!");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<String> emails = new ArrayList<>();
+
+            while (resultSet.next()){
+                String userName = resultSet.getString("user_name");
+                String email = resultSet.getString("user_email");
+                String type = resultSet.getString("user_type");
+                User user = new User(userName, email, type);
+                emails.add(user.getUserEmail());
+            }
+            System.out.println("Sucess to selected emails!");
+            connection.close();
+            for (String email : emails) {
+                System.out.println(email);
+                System.out.println();
+            }
+            return emails;
+
+        }catch (Exception e){
+            System.out.println("Failed to SELECT emails!");
+            return Collections.emptyList();
+        }
+
+    }
+
+    public List<String> listPass() { // Vai retornar uma lista com as senahs do banco de dados
+        String SQL = "SELECT  *  FROM USERS";
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+
+            System.out.println("SUCESS CONECTION!");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<String> passwords = new ArrayList<>();
+
+            while (resultSet.next()){
+                String userName = resultSet.getString("user_name");
+                String email = resultSet.getString("user_email");
+                String pass = resultSet.getString("user_password");
+                String type = resultSet.getString("user_type");
+                User user = new User(userName, email, pass, type);
+                passwords.add(user.getUserPass());
+            }
+            System.out.println("Sucess to selected passwords!");
+            connection.close();
+            for (String pass : passwords) {
+                System.out.println(pass);
+                System.out.println();
+            }
+            return passwords;
+
+        }catch (Exception e){
+            System.out.println("Failed to SELECT passwords!");
+            return Collections.emptyList();
+        }
+
+    }
 }
