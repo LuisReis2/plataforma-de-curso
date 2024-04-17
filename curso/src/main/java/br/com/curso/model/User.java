@@ -4,7 +4,6 @@ public class User {
     private String userName;
     private String userEmail;
     private String userPass;
-
     private String userType;
 
     public User(String name, String email, String pass, String type){
@@ -13,12 +12,6 @@ public class User {
         this.userPass = pass;
         this.userType = type;
     }
-    public User(String name, String email, String type){ // OVERLOAD PARA O LIST SEM SENHA
-        this.userName = name;
-        this.userEmail = email;
-        this.userType = type;
-    }
-
     public String getUserName() {
         return userName;
     }
