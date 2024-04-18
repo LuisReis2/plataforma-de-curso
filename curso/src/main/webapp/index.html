@@ -1,21 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style/create-style.css">
+</head>
 <body>
 
-<form action="/create-user" method="post">
+<form id="user-form" action="/create-user" method="post">
+    <h2>Cadastro de Usuário</h2>
     <label for="user-name">Nome</label>
-    <input type="text" id="user-name" name="user-name">
+    <input type="text" id="user-name" name="user-name" style="text-align: center;">
 
     <label for="email">Email</label>
-    <input type="text" id="email" name="email">
+    <input type="text" id="email" name="email" style="text-align: center;">
+
     <label for="password">Senha</label>
-    <input type="text" id="password" name="password">
-    <label for="type">Tipo</label>
-    <select id="type" name="type">
-        <option value="ADM">Admin</option>
-        <option value="PROFESSOR">Professor</option>
-        <option value="STUDENT">Aluno</option>
-    </select>
-    <input type="submit" value="cadastrar">
+    <input type="text" id="password" name="password" style="text-align: center;">
+
+    <label for="type" style="color: #fff;" id="user-type-label">Tipo de Usuário</label>
+    <div class="select-wrapper">
+        <select id="type" name="type" onchange="changeFormStyle()">
+            <option value="ADM"><i class="fas fa-user-shield"></i> Administrador</option>
+            <option value="PROFESSOR"><i class="fas fa-chalkboard-teacher"></i> Professor</option>
+            <option value="STUDENT"><i class="fas fa-user-graduate"></i> Aluno</option>
+        </select>
+        <div class="select-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+
+    <input type="submit" value="Cadastrar">
 </form>
+<script src="scripts/validade-create.js"></script>
 </body>
 </html>
