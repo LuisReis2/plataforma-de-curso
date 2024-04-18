@@ -25,3 +25,7 @@ function changeFormStyle() {
       userTypeLabel.classList.remove("highlight-label");
   }, 500);
 }
+
+function setPage(){
+    window.location = 'index.html'
+}
