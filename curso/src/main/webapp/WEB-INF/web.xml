@@ -19,7 +19,7 @@
     <servlet-name>H2Console</servlet-name>
     <url-pattern>/console/*</url-pattern>
   </servlet-mapping>
-  <!--  <welcome-file-list>-->
-  <!--    <welcome-file></welcome-file>-->
-  <!--  </welcome-file-list>-->
+    <welcome-file-list>
+      <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
 </web-app>
