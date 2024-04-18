@@ -18,12 +18,6 @@ import java.io.IOException;
 
 public class Authentication extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("login.html");
-        rd.forward(req,resp);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         //armazenando informações para fazer a verificação
@@ -42,29 +36,29 @@ public class Authentication extends HttpServlet {
             int pos = usersEmailsBD.indexOf(email);
             String senhaguardada = userPasswordBD.get(pos);
 
-                //se a senha estiver correta
-                if(senhaguardada.equals(password)) {
-                    //verifica o tipo do usuario q localizou
-                    for (User user : allUsersInBD) {
-                        if (user.getUserEmail().equals(email)) {
-                            String userType = user.getUserType();
+            if(senhaguardada.equals(password)) {
+                //verifica o tipo do usuario q localizou
+                for (User user : allUsersInBD) {
+                    if (user.getUserEmail().equals(email)) {
+                        String userType = user.getUserType();
 
-                            if (userType.equals("ADM")) {
-                                req.getRequestDispatcher("index.html").forward(req, resp);
+                        if (userType.equals("ADM")) {
+                            req.getRequestDispatcher("index.html").forward(req, resp);
 
-                            } else if (userType.equals("PROFESSOR")) {
-                                req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
-                            } else if (userType.equals("STUDENT")) {
-                                req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
-                            }
+                        } else if (userType.equals("PROFESSOR")) {
+                            req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
+                        } else if (userType.equals("STUDENT")) {
+                            req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
                         }
                     }
                 }
-                //se não
-                else {
-                    req.getRequestDispatcher("loginError.html").forward(req, resp);
-                }
-        }else {
+            }
+            else {
+                req.getRequestDispatcher("loginError.html").forward(req, resp);
+            }
+            //se não
+        }
+        else {
             req.getRequestDispatcher("loginError.html").forward(req, resp);
         }
     }
