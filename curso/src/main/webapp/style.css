@@ -103,6 +103,7 @@ body{
     color: rgb(34, 0, 66) ;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px rgba(124, 238, 213, 0.712) ;
+    margin: auto;
 }
 
 .leftImage{
