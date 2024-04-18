@@ -1,18 +1,16 @@
 
 package br.com.curso.servlet;
 
-import java.util.List;
-
 import br.com.curso.dao.userDao;
 import br.com.curso.model.User;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/Authentication")
 
@@ -46,9 +44,9 @@ public class Authentication extends HttpServlet {
                             req.getRequestDispatcher("index.html").forward(req, resp);
 
                         } else if (userType.equals("PROFESSOR")) {
-                            req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
+                            req.getRequestDispatcher("menu.html").forward(req, resp);
                         } else if (userType.equals("STUDENT")) {
-                            req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
+                            req.getRequestDispatcher("menu.html").forward(req, resp);
                         }
                     }
                 }
