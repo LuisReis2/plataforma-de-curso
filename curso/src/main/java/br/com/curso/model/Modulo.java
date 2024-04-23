@@ -1,7 +1,7 @@
 package br.com.curso.model;
 
 public class Modulo {
-    private String nomeModulo,descModulo;
+    private String nomeModulo, descModulo;
 
     public Modulo(String nomeModulo, String descModulo) {
         this.nomeModulo = nomeModulo;

@@ -2,37 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style/style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="main-login">
-        
-        <div class = "left-login">
-            <h1>Faça seu login <br> e acesse nossa plataforma</h1>
-            <img src="presentation-animate.svg" class="leftImage" alt="Apresentação">
-        </div>
+<div class="main-login">
 
-        <div class = "right-login">
-                <div class="card-login">
-                    <h1>Login</h1>
-                  <form action="/Authentication" method="post">
-                    <div class="textfield">
-                        <label for="usuario">Email: </label>
-                        <input id="usuario" type="email" name="email" placeholder="Email">
-                    </div>
-                    <div class="textfield">
-                        <label for="senha">Senha: </label>
-                        <input id="senha" type="password" name="senha" placeholder="Senha">
-                    </div>
-                    <button class="btn-login">Login</button>
-                    <label for="">error</label>
-                  </form>
+    <div class="left-login">
+        <h1>Faça seu login <br> e acesse nossa plataforma</h1>
+        <img alt="Apresentação" class="leftImage" src="presentation-animate.svg">
+    </div>
+
+    <div class="right-login">
+        <div class="card-login">
+            <h1>Login</h1>
+            <form action="/Authentication" method="post">
+                <div class="textfield">
+                    <label for="usuario">Email: </label>
+                    <input id="usuario" name="email" placeholder="Email" type="email">
                 </div>
-                
+                <div class="textfield">
+                    <label for="senha">Senha: </label>
+                    <input id="senha" name="senha" placeholder="Senha" type="password">
+                </div>
+                <button class="btn-login">Login</button>
+                <label for="">error</label>
+            </form>
         </div>
 
     </div>
+
+</div>
 </body>
 </html>

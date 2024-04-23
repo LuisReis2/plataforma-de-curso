@@ -2,25 +2,25 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style/create-style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="style/create-style.css" rel="stylesheet">
 </head>
 <body>
 
-<form id="user-form" action="/create-user" method="post">
+<form action="/create-user" id="user-form" method="post">
     <h2>Cadastro de Usuário</h2>
     <label for="user-name">Nome</label>
-    <input type="text" id="user-name" name="user-name" style="text-align: center;">
+    <input id="user-name" name="user-name" style="text-align: center;" type="text">
 
     <label for="email">Email</label>
-    <input type="text" id="email" name="email" style="text-align: center;">
+    <input id="email" name="email" style="text-align: center;" type="text">
 
     <label for="password">Senha</label>
-    <input type="password" id="password" name="password" style="text-align: center;">
+    <input id="password" name="password" style="text-align: center;" type="password">
 
-    <label for="type" style="color: #fff;" id="user-type-label">Tipo de Usuário</label>
+    <label for="type" id="user-type-label" style="color: #fff;">Tipo de Usuário</label>
     <div class="select-wrapper">
         <select id="type" name="type" onchange="changeFormStyle()">
             <option value="ADM"><i class="fas fa-user-shield"></i> Administrador</option>

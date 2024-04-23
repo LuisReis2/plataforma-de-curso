@@ -1,4 +1,3 @@
-
 package br.com.curso.servlet;
 
 import br.com.curso.dao.userDao;
@@ -22,19 +21,19 @@ public class Authentication extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("senha");
 
-        List<User>  allUsersInBD = new userDao().findAllUsers();
+        List<User> allUsersInBD = new userDao().findAllUsers();
         List<String> usersEmailsBD = new userDao().listEmail();
         List<String> userPasswordBD = new userDao().listPass();
         //---------------------------------------------------------
 
         //verificação
-        if(usersEmailsBD.contains(email)){
+        if (usersEmailsBD.contains(email)) {
 
             //verificação da senha
             int pos = usersEmailsBD.indexOf(email);
             String senhaguardada = userPasswordBD.get(pos);
 
-            if(senhaguardada.equals(password)) {
+            if (senhaguardada.equals(password)) {
                 //verifica o tipo do usuario q localizou
                 for (User user : allUsersInBD) {
                     if (user.getUserEmail().equals(email)) {
@@ -50,13 +49,11 @@ public class Authentication extends HttpServlet {
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 req.getRequestDispatcher("loginError.html").forward(req, resp);
             }
             //se não
-        }
-        else {
+        } else {
             req.getRequestDispatcher("loginError.html").forward(req, resp);
         }
     }

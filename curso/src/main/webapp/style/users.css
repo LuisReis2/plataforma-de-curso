@@ -1,0 +1,33 @@
+/* users.css */
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(34, 0, 66);
+    color: rgb(211, 255, 253); /* Verde claro (com transparência) */
+}
+
+h1 {
+    text-align: center;
+    color: rgb(121, 231, 149); /* Verde claro */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 2px solid rgb(121, 231, 149); /* Verde claro */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid rgb(121, 231, 149); /* Verde claro */
+    text-align: center;
+}
+
+th {
+    background-color: rgb(52, 8, 94); /* Roxo escuro */
+    color: rgb(211, 255, 253); /* Verde claro (com transparência) */
+}

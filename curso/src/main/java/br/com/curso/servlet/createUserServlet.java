@@ -27,7 +27,7 @@ public class createUserServlet extends HttpServlet {
         userDao.createUser(user);
         userDao.listEmail();
         userDao.listPass();
-       // req.getRequestDispatcher("index.html").forward(req, resp);
+        // req.getRequestDispatcher("index.html").forward(req, resp);
         resp.sendRedirect("/find-all-users");
     }
 }

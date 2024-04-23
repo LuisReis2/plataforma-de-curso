@@ -1,7 +1,7 @@
 package br.com.curso.servlet;
 
-import br.com.curso.model.User;
 import br.com.curso.dao.userDao;
+import br.com.curso.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet ("/find-all-users")
+@WebServlet("/find-all-users")
 public class ListUsersServlet extends HttpServlet {
 
     @Override

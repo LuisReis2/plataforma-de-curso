@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style/users.css">
 </head>
 <body>
   <div>
     <h1>Users</h1>
-    <table border=1>
+    <table border="1">
         <tr>
             <th>Email</th>
             <th>Name</th>

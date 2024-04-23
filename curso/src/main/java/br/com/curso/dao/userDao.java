@@ -12,12 +12,12 @@ import java.util.List;
 
 public class userDao {
 
-   public void createUser(User user){
-    String  SQL = "INSERT INTO users (user_name, user_email, user_password, user_type) VALUES (?, ?, ?, ?)";
+    public void createUser(User user) {
+        String SQL = "INSERT INTO users (user_name, user_email, user_password, user_type) VALUES (?, ?, ?, ?)";
 
-    try {
+        try {
 
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("SUCESS CONECTION!");
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -27,43 +27,44 @@ public class userDao {
             preparedStatement.setString(4, user.getUserType());
             preparedStatement.execute();
 
-        System.out.println("INSERT SUCESS!");
+            System.out.println("INSERT SUCESS!");
 
-        connection.close();
-
-    }catch (Exception a){
-        System.out.println("INSERT FAILED");
-    }
-    }
-    public List<User> findAllUsers() {
-       String SQL = "SELECT  *  FROM USERS";
-
-       try {
-           Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
-
-           System.out.println("SUCESS CONECTION!");
-
-           PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-           ResultSet resultSet = preparedStatement.executeQuery();
-
-           List<User> users = new ArrayList<>();
-
-           while (resultSet.next()){
-               String userName = resultSet.getString("user_name");
-               String email = resultSet.getString("user_email");
-               String type = resultSet.getString("user_type");
-               User user = new User(userName, email, type);
-               users.add(user);
-           }
-           System.out.println("Sucess to selected users!");
             connection.close();
-           return users;
 
-       }catch (Exception e){
-           System.out.println("Failed to SELECT users!");
-           return Collections.emptyList();
-       }
+        } catch (Exception a) {
+            System.out.println("INSERT FAILED");
+        }
+    }
+
+    public List<User> findAllUsers() {
+        String SQL = "SELECT  *  FROM USERS";
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            System.out.println("SUCESS CONECTION!");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<User> users = new ArrayList<>();
+
+            while (resultSet.next()) {
+                String userName = resultSet.getString("user_name");
+                String email = resultSet.getString("user_email");
+                String type = resultSet.getString("user_type");
+                User user = new User(userName, email, type);
+                users.add(user);
+            }
+            System.out.println("Sucess to selected users!");
+            connection.close();
+            return users;
+
+        } catch (Exception e) {
+            System.out.println("Failed to SELECT users!");
+            return Collections.emptyList();
+        }
 
     }
 
@@ -71,7 +72,7 @@ public class userDao {
         String SQL = "SELECT  *  FROM USERS";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             System.out.println("SUCESS CONECTION!");
 
@@ -81,7 +82,7 @@ public class userDao {
 
             List<String> emails = new ArrayList<>();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String userName = resultSet.getString("user_name");
                 String email = resultSet.getString("user_email");
                 String type = resultSet.getString("user_type");
@@ -96,7 +97,7 @@ public class userDao {
             }
             return emails;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Failed to SELECT emails!");
             return Collections.emptyList();
         }
@@ -107,7 +108,7 @@ public class userDao {
         String SQL = "SELECT  *  FROM USERS";
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             System.out.println("SUCESS CONECTION!");
 
@@ -117,7 +118,7 @@ public class userDao {
 
             List<String> passwords = new ArrayList<>();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String userName = resultSet.getString("user_name");
                 String email = resultSet.getString("user_email");
                 String pass = resultSet.getString("user_password");
@@ -133,7 +134,7 @@ public class userDao {
             }
             return passwords;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Failed to SELECT passwords!");
             return Collections.emptyList();
         }

@@ -6,17 +6,19 @@ public class User {
     private String userPass;
     private String userType;
 
-    public User(String name, String email, String pass, String type){
+    public User(String name, String email, String pass, String type) {
         this.userName = name;
         this.userEmail = email;
         this.userPass = pass;
         this.userType = type;
     }
-    public User(String name, String email, String type){ // OVERLOAD PARA O LISTUSER
+
+    public User(String name, String email, String type) { // OVERLOAD PARA O LISTUSER
         this.userName = name;
         this.userEmail = email;
         this.userType = type;
     }
+
     public String getUserName() {
         return userName;
     }
