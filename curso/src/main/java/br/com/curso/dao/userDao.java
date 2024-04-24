@@ -164,4 +164,34 @@ public class userDao {
 
         }
    }
+
+   public void updateUser(User user){
+        String SQL = "UPDATE USERS SET USER_NAME = ?, USER_PASSWORD = ?, USER_TYPE = ? WHERE USER_EMAIL = ?";
+       try {
+
+           Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+
+           System.out.println("tentando enviar informações");
+
+           PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+           preparedStatement.setString(1, user.getUserName());
+           System.out.println("primeiro check");
+           preparedStatement.setString(2, user.getUserPass());
+           preparedStatement.setString(3, user.getUserType());
+           preparedStatement.setString(4, user.getUserEmail());
+           preparedStatement.execute();
+
+           System.out.println("success in update car");
+
+           connection.close();
+
+       } catch (Exception e) {
+
+           System.out.println("fail in database connection");
+           System.out.println("Error: " + e.getMessage());
+
+       }
+
+   }
 }
