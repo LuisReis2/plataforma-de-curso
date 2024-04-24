@@ -3,13 +3,13 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(34, 0, 66);
+    background-color: #E4D6FF;
     color: rgb(211, 255, 253); /* Verde claro (com transparência) */
 }
 
 h1 {
     text-align: center;
-    color: rgb(121, 231, 149); /* Verde claro */
+    color: #402D65; /* Verde claro */
     font-weight: bold;
     margin-top: 20px;
 }
@@ -18,16 +18,25 @@ table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
-    border: 2px solid rgb(121, 231, 149); /* Verde claro */
+    border: 2px solid #6D5A93; /* Verde claro */
 }
 
 th, td {
     padding: 10px;
-    border: 1px solid rgb(121, 231, 149); /* Verde claro */
+    border: 1px solid #6D5A93; /* Verde claro */
     text-align: center;
+    color: #402D65;
 }
 
 th {
-    background-color: rgb(52, 8, 94); /* Roxo escuro */
-    color: rgb(211, 255, 253); /* Verde claro (com transparência) */
+    background-color: #6D5A93; /* Roxo escuro */
+    color: #FFFFFF; /* Verde claro (com transparência) */
 }
+button {
+                cursor: pointer;
+                padding: 5px 10px;
+                border-radius: 20px;
+                border: none;
+                background-color: #402D65;
+                color: white;
+            }
