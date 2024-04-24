@@ -40,7 +40,7 @@ public class Authentication extends HttpServlet {
                         String userType = user.getUserType();
 
                         if (userType.equals("ADM")) {
-                            req.getRequestDispatcher("index.html").forward(req, resp);
+                            req.getRequestDispatcher("index.jsp").forward(req, resp);
 
                         } else if (userType.equals("PROFESSOR")) {
                             req.getRequestDispatcher("menu.html").forward(req, resp);
