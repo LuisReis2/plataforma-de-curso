@@ -140,4 +140,28 @@ public class userDao {
         }
 
     }
+
+    public void DeleteUser(String email){
+        String SQL = "DELETE USERS WHERE USER_EMAIL = ?";
+
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            System.out.println("success in database connection");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, email);
+            preparedStatement.execute();
+
+            System.out.println("success on delete car with id: " + email);
+
+            connection.close();
+
+        } catch (Exception e) {
+
+            System.out.println("fail in database connection");
+
+        }
+   }
 }
