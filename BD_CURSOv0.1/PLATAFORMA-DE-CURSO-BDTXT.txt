@@ -1,3 +1,13 @@
+CREATE TABLE users (
+    user_name VARCHAR(50) UNIQUE NOT NULL,
+    user_email VARCHAR(100) PRIMARY KEY,
+    user_password VARCHAR(50),
+    user_type ENUM('ADM', 'STUDENT', 'PROFESSOR')
+);
+
+INSERT INTO users (user_name, user_email, user_password, user_type) 
+VALUES ('admin', 'admin@example.com', 'senha123', 'ADM');
+
 CREATE TABLE CURSO(
 ID_CURSO INT AUTO_INCREMENT PRIMARY KEY,
 NOME_CURSO VARCHAR(70) NOT NULL,
