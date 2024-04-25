@@ -28,7 +28,7 @@
                                 <button type="submit">Delete</button>
                                 </form>
                   <span> | </span>
-                  <a href="index.jsp?email=${user.userEmail}&user-name=${user.userName}&type = ${user.userType}&password = ${user.userPass}">Update</a>
+                  <a href="createUser.jsp?email=${user.userEmail}&user-name=${user.userName}&type=${user.userType}&password=${user.userPass}">Update</a>
                 </td>
             </tr>
         </c:forEach>
