@@ -1,6 +1,8 @@
 package br.com.curso.model;
 
 public class Aula {
+    private String idAula;
+    private String FkCurso;
     private String titleAula, contentAula;
     /*
      * bom ainda indeciso com os tipos dos atributos, content seria o conteudo o conteudo provavelmente
@@ -8,6 +10,29 @@ public class Aula {
      * alocado no site? ou teria uma conversão futura?
      *
      * */
+
+
+    public Aula(String titleAula, String contentAula, String fkCurso) {
+        FkCurso = fkCurso;
+        this.titleAula = titleAula;
+        this.contentAula = contentAula;
+    }
+
+    public String getIdAula() {
+        return idAula;
+    }
+
+    public void setIdAula(String idAula) {
+        this.idAula = idAula;
+    }
+
+    public String getFkCurso() {
+        return FkCurso;
+    }
+
+    public void setFkCurso(String fkCurso) {
+        FkCurso = fkCurso;
+    }
 
     public String getTitleAula() {
         return titleAula;
