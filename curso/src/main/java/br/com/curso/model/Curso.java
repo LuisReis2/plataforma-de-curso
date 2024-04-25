@@ -1,16 +1,13 @@
 package br.com.curso.model;
 
 public class Curso {
-    private String NomeCurso, DescCurso;
-    /*
-     * o FKIDCURSO ainda é uma icognita de como funciona, coloquei ele representando um valor
-     * do tipo usuario porque seguindo a logica de fk tenho q representar o mesmo valor com o
-     * valor do usuario. porém não sei ainda
-     * */
+    private String NomeCurso, DescCurso, IdCurso;
 
-    public Curso(String nomeCurso, String descCurso) {
+
+    public Curso(String nomeCurso, String descCurso, String idCurso) {
         NomeCurso = nomeCurso;
         DescCurso = descCurso;
+        IdCurso = idCurso;
     }
 
     public String getNomeCurso() {
@@ -27,5 +24,13 @@ public class Curso {
 
     public void setDescCurso(String descCurso) {
         DescCurso = descCurso;
+    }
+
+    public String getIdCurso() {
+        return IdCurso;
+    }
+
+    public void setIdCurso(String idCurso) {
+        IdCurso = idCurso;
     }
 }
