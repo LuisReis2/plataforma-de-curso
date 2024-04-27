@@ -1,9 +1,7 @@
-
 function changeFormStyle() {
   const select = document.getElementById("type");
   const selectedOption = select.options[select.selectedIndex].value;
   const form = document.getElementById("user-form");
-  const userTypeLabel = document.getElementById("user-type-label");
 
   // Remover classes de estilo anteriores
   form.classList.remove("form-admin");
@@ -18,14 +16,9 @@ function changeFormStyle() {
   } else if (selectedOption === "STUDENT") {
       form.classList.add("form-student");
   }
-
-  // Adicionar classe de animação à label, somente teste
-  userTypeLabel.classList.add("highlight-label");
-  setTimeout(function() {
-      userTypeLabel.classList.remove("highlight-label");
-  }, 500);
 }
 
-function setPage(){
-    window.location = 'index.html'
+function setPage() {
+    // Redirecionar para menu.html após a autenticação
+    window.location = 'menu.html';
 }

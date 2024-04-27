@@ -2,9 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style/menu.css">
 </head>
 <body>
-<h1>HELLOR WORlD!</h1>
+<header class="header">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="profile-tab" onclick="toggleProfile()">
+        <img src="perfil.png" alt="Perfil" class="profile-icon">
+    </div>
+</header>
+
+<main class="main-content">
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Lista de Users</a></li>
+            <li><a href="#">Lista de Cursos</a></li>
+            <li><a href="">Cadastrar User</a></li>
+            <li><a href="#">Criar Curso</a></li>
+        </ul>
+    </nav>
+</main>
+
+<footer class="footer">
+
+</footer>
+
+<div class="profile-sidebar" id="profileSidebar">
+    <div class="profile-header">
+        <h2>Meu Perfil</h2>
+        <button class="close-btn" onclick="toggleProfile()">Fechar</button>
+    </div>
+    <div class="profile-body">
+        <p>Nome: Leoleoleoleo</p>
+        <p>Email: leo@leo.leo.br </p>
+    </div>
+</div>
+
+<script>
+    function toggleProfile() {
+        var sidebar = document.getElementById("profileSidebar");
+        if (sidebar.style.right === "-300px") {
+            sidebar.style.right = "0";
+        } else {
+            sidebar.style.right = "-300px";
+        }
+    }
+</script>
 </body>
 </html>

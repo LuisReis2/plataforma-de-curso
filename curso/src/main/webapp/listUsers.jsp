@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="style/users.css">
+    <link rel="stylesheet" type="text/css" href="style/listUsers.css">
 </head>
 <body>
   <div>
@@ -23,12 +23,12 @@
                 <td>${user.userName}</td>
                 <td>${user.userType}</td>
                 <td>
-                <form action="/delete" method="post">
-                                <input type="hidden" id="userEmail" name="userEmail" value="${user.userEmail}">
-                                <button type="submit">Delete</button>
-                                </form>
-                  <span> | </span>
-                  <a href="createUser.jsp?email=${user.userEmail}&user-name=${user.userName}&type=${user.userType}&password=${user.userPass}">Update</a>
+                    <form action="/delete" method="post">
+                        <input type="hidden" id="userEmail" name="userEmail" value="${user.userEmail}">
+                        <button class="action-button" type="submit">Delete</button>
+                    </form>
+                    <span> | </span>
+                    <a class="action-link" href="createUser.jsp?email=${user.userEmail}&user-name=${user.userName}&type=${user.userType}&password=${user.userPass}">Update</a>
                 </td>
             </tr>
         </c:forEach>

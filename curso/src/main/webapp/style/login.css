@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: #E4D6FF;
+    color: #56447B;
+}
+
+.header, .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 55px;
+    background-color: #8674AA;
+    color: white;
+}
+
+.main-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.description h1 {
+    color: #56447B;
+}
+
+.description p {
+    color: #56447B;
+    margin: 10px 0;
+}
+
+.btn-request {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #56447B;
+    color: #FBBAFB;
+    text-decoration: none;
+    margin-right: 10px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.432);
+}
+
+.btn-request:hover {
+    background-color: #3F3552;
+}
+
+.logo-container {
+    margin-left: 20px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.main-login {
+    width: 100vw;
+    height: calc(100vh - 120px);
+    background-color: #E4D6FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left-login > h1 {
+    color: #56447B;
+    font-weight: 800;
+}
+
+.right-login {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login {
+    width: 50%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #56447B;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.432);
+    margin: 20px;
+}
+
+.card-login > h1 {
+    font-size: 3vw;
+    color: #FBBAFB;
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textfield > input {
+    width: calc(100% - 30px);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #7C6C9A;
+    color: #FFFFFF;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.432);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label {
+    color: rgba(211, 255, 253, 0.712);
+    margin-bottom: 10px;
+}
+
+.textfield > input::placeholder {
+    color: rgba(211, 255, 253, 0.712);
+}
+
+.btn-login {
+    width: calc(100% - 30px);
+    padding: 16px 0px;
+    margin: 25px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #56447B;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px rgba(124, 238, 213, 0.712);
+    margin: auto;
+}
+
+.leftImage {
+    width: 25vw;
+}
