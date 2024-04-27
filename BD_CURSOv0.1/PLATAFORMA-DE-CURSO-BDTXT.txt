@@ -10,11 +10,12 @@ CREATE TABLE users (
 INSERT INTO users (user_name, user_email, user_password, user_type) 
 VALUES ('admin', 'admin@example.com', 'senha123', 'ADM');
 
-CREATE TABLE CURSO(
-ID_CURSO INT PRIMARY KEY, // o id será incrementado pelo usaurio para poder fazer o select aula
-NOME_CURSO VARCHAR(70) NOT NULL,
-DESC_CURSO VARCHAR(300)NOT NULL,
+CREATE TABLE CURSOS(
+    ID_CURSO VARCHAR(50) PRIMARY KEY,
+    NOME_CURSO VARCHAR(70) NOT NULL,
+    DESC_CURSO TEXT NOT NULL
 );
+
 
 CREATE TABLE AULA(
 ID_AULA INT AUTO_INCREMENT PRIMARY KEY,
