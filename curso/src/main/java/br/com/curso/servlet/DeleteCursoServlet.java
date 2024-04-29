@@ -13,28 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/create-curso")
-public class createCursoServlet extends HttpServlet {
+@WebServlet("/delete-curso")
+public class DeleteCursoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
+        cursoDao cursoDao = new cursoDao();
+        userDao userDao = new userDao();
 
-        String nomeCurso = req.getParameter("nomeCurso");
-        String descCurso = req.getParameter("descCurso");
-        String idCurso = req.getParameter("idCurso");
-        Curso curso = new Curso(nomeCurso, descCurso, idCurso);
-        cursoDao dao = new cursoDao();
+        cursoDao.deleteCarById(id);
 
-        if(idCurso.isBlank()){
-            dao.createCurso(curso);
-        }else{
-            dao.updateCursoById(curso);
-        }
-        User userLog = new userDao().userLogado();
-        List<Curso> cursos = dao.ListCurso();
+        User userLog = userDao.userLogado();
+
+        List<Curso> cursos = cursoDao.ListCurso();
+
         req.setAttribute("cursos", cursos);
         req.setAttribute("User", userLog);
-        req.getRequestDispatcher("menu.jsp").forward(req,resp);
-
+        req.getRequestDispatcher("menu.jsp").forward(req, resp);
     }
 }
