@@ -22,7 +22,7 @@ public class createCursoServlet extends HttpServlet {
         String nomeCurso = req.getParameter("nomeCurso");
         String descCurso = req.getParameter("descCurso");
         String idCurso = req.getParameter("idCurso");
-        Curso curso = new Curso(nomeCurso, descCurso, idCurso);
+        Curso curso = new Curso(descCurso, nomeCurso);
         cursoDao dao = new cursoDao();
 
         if(idCurso.isBlank()){

@@ -24,7 +24,8 @@
             <li><a href="/find-all-users">Lista de Users</a></li>
             <li><a href="/find-all-cursos">Lista de Cursos</a></li>
             <li><a href="createUser.jsp">Cadastrar User</a></li>
-            <li><a href="createCurso.html">Criar Curso</a></li>
+            <li><a href="createCurso.jsp">Criar Curso</a></li>
+            <li><a href="testeAula.jsp">Criar Aulas</a></li>
         </c:if>
         </ul>
     </nav>
@@ -33,7 +34,6 @@
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Descrição</th>
-
                             <th>Actions</th>
                         </tr>
                        <c:forEach var="curso" items="${cursos}">
@@ -49,9 +49,13 @@
                                     <span> | </span>
                                      <a href="createCurso.jsp?idCurso=${curso.getIdCurso()}&nomeCurso=${curso.getNomeCurso()}&descCurso=${curso.getDescCurso()}">Update</a>
                                 </form>
-                               </td>
+                                <form action="/find-aulas" method="post">
+                                    <input type="hidden" id="idCurso" name="idCurso" value="${curso.getIdCurso()}">
+                                    <button type="submit">LISTA</button>
+                                </form>
                            </tr>
                        </c:forEach>
+                      <button type="button" onclick="redirectToHome()">Home</button>
                     </table>
 </main>
 
@@ -82,6 +86,9 @@
             sidebar.style.right = "-300px";
         }
     }
+        function redirectToHome() {
+                window.location.href = "home.html";
+            }
 </script>
 </body>
 </html>

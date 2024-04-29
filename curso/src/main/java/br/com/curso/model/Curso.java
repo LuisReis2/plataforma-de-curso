@@ -10,6 +10,11 @@ public class Curso {
         IdCurso = idCurso;
     }
 
+    public Curso(String descCurso, String nomeCurso) {
+        DescCurso = descCurso;
+        NomeCurso = nomeCurso;
+    }
+
     public String getNomeCurso() {
         return NomeCurso;
     }

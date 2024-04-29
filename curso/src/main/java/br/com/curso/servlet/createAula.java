@@ -13,18 +13,18 @@ import java.util.List;
 
 @WebServlet("/create-aula")
 
-public class createAula  extends HttpServlet{
+public class createAula  extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String titulo,contentAula,idFk;
+        String titulo, contentAula, idFk;
         titulo = req.getParameter("aula-name");
         contentAula = req.getParameter("aula-content");
         idFk = req.getParameter("aula-fkid");
 
-        Aula aula = new Aula(titulo,contentAula,idFk);
+        Aula aula = new Aula(titulo, contentAula, idFk);
         aulaDao auladao = new aulaDao();
         auladao.createAula(aula);
-        resp.sendRedirect("/find-aulas");
+        resp.sendRedirect(req.getContextPath() + "/ListCursos");
     }
 }
