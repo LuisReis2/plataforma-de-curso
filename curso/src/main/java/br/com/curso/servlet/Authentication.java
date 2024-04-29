@@ -1,6 +1,8 @@
 package br.com.curso.servlet;
 
+import br.com.curso.dao.cursoDao;
 import br.com.curso.dao.userDao;
+import br.com.curso.model.Curso;
 import br.com.curso.model.User;
 
 import javax.servlet.ServletException;
@@ -35,17 +37,41 @@ public class Authentication extends HttpServlet {
 
             if (senhaguardada.equals(password)) {
                 //verifica o tipo do usuario q localizou
+
                 for (User user : allUsersInBD) {
                     if (user.getUserEmail().equals(email)) {
                         String userType = user.getUserType();
 
                         if (userType.equals("ADM")) {
-                            resp.sendRedirect("menu.html");
+
+                            // === Pegando informações do usuário
+                            userDao userDao = new userDao();
+
+                            User usuario = userDao.returnUser(email);
+
+                            req.setAttribute("User", usuario);
+
+                            userDao.registraUserLogado(usuario); // Registra o user no bd(Ele estará logado)
+
+                            List<Curso> cursos = new cursoDao().ListCurso(); // Listando cursos
+
+                            System.out.println(usuario.getUserEmail());
+                            System.out.println(usuario.getUserName());
+
+                            req.setAttribute("cursos", cursos); // atributo para trabalhar no jsp
+
+                            req.getRequestDispatcher("menu.jsp").forward(req, resp);
 
                         } else if (userType.equals("PROFESSOR")) {
-                            req.getRequestDispatcher("menu.html").forward(req, resp);
+                            userDao dao = new userDao();
+                            User usuario = dao.returnUser(email);
+                            req.setAttribute("User", usuario);
+                            req.getRequestDispatcher("menu.jsp").forward(req, resp);
                         } else if (userType.equals("STUDENT")) {
-                            req.getRequestDispatcher("menu.html").forward(req, resp);
+                            userDao dao = new userDao();
+                            User usuario = dao.returnUser(email);
+                            req.setAttribute("User", usuario);
+                            req.getRequestDispatcher("menu.jsp").forward(req, resp);
                         }
                     }
                 }
