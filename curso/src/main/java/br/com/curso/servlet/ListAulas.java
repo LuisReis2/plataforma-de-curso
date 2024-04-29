@@ -16,11 +16,11 @@ import java.util.List;
 public class ListAulas extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<String> lkd = new aulaDao().listFkId();
-        req.setAttribute("aula",lkd);
-        req.getRequestDispatcher("list.jsp").forward(req,resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idCurso = req.getParameter("idCurso");
 
-
+        List<Aula> aula = new aulaDao().listFkId(idCurso);
+        req.setAttribute("aula", aula);
+        req.getRequestDispatcher("list.jsp").forward(req, resp);
     }
 }

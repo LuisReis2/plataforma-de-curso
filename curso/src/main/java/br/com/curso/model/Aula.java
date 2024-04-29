@@ -18,6 +18,13 @@ public class Aula {
         this.contentAula = contentAula;
     }
 
+    public Aula(String idAula, String fkCurso, String titleAula, String contentAula) {
+        this.idAula = idAula;
+        FkCurso = fkCurso;
+        this.titleAula = titleAula;
+        this.contentAula = contentAula;
+    }
+
     public String getIdAula() {
         return idAula;
     }

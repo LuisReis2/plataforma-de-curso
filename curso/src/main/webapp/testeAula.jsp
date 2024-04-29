@@ -121,11 +121,11 @@ input[type="submit"]:hover {
     <label for="user-name">TITULO DA AULA</label>
     <input id="user-name" name="aula-name" style="text-align: center;" type="text" >
 
-    <label for="email">aula</label>
-    <input id="email" name="aula-content" style="text-align: center;" type="text" >
+    <label for="aula-content">CONTEUDO DA AULA</label>
+    <input id="aula-content" name="aula-content" style="text-align: center;" type="text" >
 
-    <label for="password">id</label>
-    <input id="password" name="au-fkid" style="text-align: center;" type="text" >
+    <label for="id">ID DO CURSO ATRELADO: </label>
+    <input id="aula-fkid" name="aula-fkid" style="text-align: center;" type="text" >
 
     <input type="submit" value="Cadastrar">
 </form>

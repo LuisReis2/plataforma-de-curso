@@ -31,20 +31,25 @@ public class aulaDao {
        }
    }
 
-   public List<String> listFkId() {
-       String SQL = "select * from aula";
+   public List<Aula> listFkId(String id) {
+       String SQL = "select * from aula where ID_CURSO_FK =  ?";
 
        try {
            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+           preparedStatement.setString(1, id);
+           preparedStatement.execute();
            ResultSet resultSet = preparedStatement.executeQuery();
-           List<String> fkid = new ArrayList<>();
+           List<Aula> fkid = new ArrayList<>();
            while (resultSet.next()) {
                String titulo = resultSet.getNString("TITLE_AULA");
+               System.out.println(titulo);
                String content = resultSet.getNString("CONTENT_AULA");
+               System.out.println(content);
                String idfk = resultSet.getNString("ID_curso_FK");
+               System.out.println(idfk);
                Aula aula = new Aula(titulo,content,idfk);
-               fkid.add(aula.getFkCurso());
+               fkid.add(aula);
            }
            connection.close();
            return fkid;

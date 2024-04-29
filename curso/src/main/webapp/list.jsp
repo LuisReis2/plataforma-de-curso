@@ -9,20 +9,18 @@
 </head>
 <body>
   <div>
-    <h1>Aula</h1>
+    <h1>list</h1>
     <table border="1">
         <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Actions</th>
+            <th>TITULO</th>
+            <th>CONTEUDO</th>
+            <th>CURSO PERETECENTE</th>
         </tr>
         <c:forEach var="aula" items="${aula}">
             <tr>
-                <td>${aula.idAula}</td>
-                <td>${aula.titleAula}</td>
-                <td>${user.contentAula}</td>
-                <td>${user.FkCurso}</td>
+                 <td>${aula.getTitleAula()}</td>
+                 <td>${aula.getContentAula()}</td>
+                 <td>${aula.getFkCurso()}</td>
             </tr>
         </c:forEach>
     </table>
