@@ -42,13 +42,14 @@ public class aulaDao {
            ResultSet resultSet = preparedStatement.executeQuery();
            List<Aula> fkid = new ArrayList<>();
            while (resultSet.next()) {
+               String idS = resultSet.getNString("ID_AULA");
                String titulo = resultSet.getNString("TITLE_AULA");
                System.out.println(titulo);
                String content = resultSet.getNString("CONTENT_AULA");
                System.out.println(content);
                String idfk = resultSet.getNString("ID_curso_FK");
                System.out.println(idfk);
-               Aula aula = new Aula(titulo,content,idfk);
+               Aula aula = new Aula(idS,idfk,titulo,content);
                fkid.add(aula);
            }
            connection.close();
@@ -62,5 +63,24 @@ public class aulaDao {
 
    }
 
+    public void deleteAulaBYid(String ID_AULA){
+        String sql = "delete aula where ID_AULA = ?";
+        try{
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            System.out.println("success in database connection");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ID_AULA);
+            preparedStatement.execute();
+
+            System.out.println("success on delete AULA with id: " + ID_AULA );
+
+            connection.close();
+        }catch (Exception e){
+            System.out.println("fail in database connection");
+        }
+    }
 
 }
