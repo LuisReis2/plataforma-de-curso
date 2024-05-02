@@ -18,6 +18,9 @@ public class DeleteCursoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        new Authentication();
+
         String id = req.getParameter("id");
         cursoDao cursoDao = new cursoDao();
         userDao userDao = new userDao();

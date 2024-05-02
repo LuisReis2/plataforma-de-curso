@@ -18,6 +18,8 @@ public class ListUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        new Authentication();
+
         List<User> users = new userDao().findAllUsers();
 
         req.setAttribute("users", users);

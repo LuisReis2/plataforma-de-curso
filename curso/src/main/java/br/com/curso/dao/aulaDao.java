@@ -83,4 +83,26 @@ public class aulaDao {
         }
     }
 
+    public void updateAula(Aula aula){
+        String sql = "UPDATE AULA SET TITLE_AULA = ?, CONTENT_AULA = ?, ID_CURSO_FK = ? WHERE ID_AULA = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            System.out.println("iniciando o update");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,aula.getTitleAula());
+            preparedStatement.setString(2,aula.getContentAula());
+            preparedStatement.setString(3,aula.getFkCurso());
+            preparedStatement.setString(4,aula.getIdAula());
+            preparedStatement.execute();
+            System.out.println("update concluido");
+            connection.close();
+        }catch(Exception e){
+            System.out.println("falha na conexão");
+            System.out.println("erro: "+e.getMessage());
+        }
+    }
+
+
+
 }

@@ -15,6 +15,9 @@ public class Delete extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+        new Authentication();
+
         String id = req.getParameter("userEmail");
 
         new userDao().DeleteUser(id);
