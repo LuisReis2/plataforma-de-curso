@@ -19,9 +19,12 @@ public class createCursoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        new Authentication();
+
         String nomeCurso = req.getParameter("nomeCurso");
         String descCurso = req.getParameter("descCurso");
         String idCurso = req.getParameter("idCurso");
+
         Curso curso = new Curso(descCurso, nomeCurso);
         cursoDao dao = new cursoDao();
 

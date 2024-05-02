@@ -17,6 +17,9 @@ public class ListAulas extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        new Authentication();
+
         String idCurso = req.getParameter("idCurso");
 
         List<Aula> aula = new aulaDao().listFkId(idCurso);

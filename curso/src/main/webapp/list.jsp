@@ -27,6 +27,7 @@
                    <form action="/DeleteAula" method="post">
                     <input type="hidden" id="IdAula" name="IdAula" value="${aula.getIdAula()}">
                     <button type="submit">Delete</button>
+                    <a href="testeAula.jsp?idAula=${aula.getIdAula()}&aula-name=${aula.getTitleAula()}&aula-content=${aula.getContentAula()}&aula-fkid=${aula.getFkCurso()}">Update</a>
                     </form>
                  </td>
             </tr>

@@ -117,15 +117,18 @@ input[type="submit"]:hover {
 <body>
 
 <form action="/create-aula" id="aula-form" method="post">
-    <h2>Cadastro de Usuário</h2>
-    <label for="user-name">TITULO DA AULA</label>
-    <input id="user-name" name="aula-name" style="text-align: center;" type="text" >
+    <h2>CRIE A AULA</h2>
+    <label for="idAula">id da AULA</label>
+    <input id="idAula" name="idAula" style="text-align: center;" type="text"  value="${param.idAula}" >
+
+    <label for="aula-name">TITULO DA AULA</label>
+    <input id="aula-name" name="aula-name" style="text-align: center;" type="text" value="${param.aula-name}" >
 
     <label for="aula-content">CONTEUDO DA AULA</label>
-    <input id="aula-content" name="aula-content" style="text-align: center;" type="text" >
+    <input id="aula-content" name="aula-content" style="text-align: center;" type="text" value="${param.aula-content}" >
 
-    <label for="id">ID DO CURSO ATRELADO: </label>
-    <input id="aula-fkid" name="aula-fkid" style="text-align: center;" type="text" >
+    <label for="aula-fkid">ID DO CURSO ATRELADO: </label>
+    <input id="aula-fkid" name="aula-fkid" style="text-align: center;" type="text" value="${param.aula-fkid}">
 
     <input type="submit" value="Cadastrar">
 </form>
