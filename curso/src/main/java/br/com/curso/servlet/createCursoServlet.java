@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -19,7 +20,6 @@ public class createCursoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        new Authentication();
 
         String nomeCurso = req.getParameter("nomeCurso");
         String descCurso = req.getParameter("descCurso");
@@ -33,11 +33,9 @@ public class createCursoServlet extends HttpServlet {
         }else{
             dao.updateCursoById(curso);
         }
-        User userLog = new userDao().userLogado();
-        List<Curso> cursos = dao.ListCurso();
-        req.setAttribute("cursos", cursos);
-        req.setAttribute("User", userLog);
-        req.getRequestDispatcher("menu.jsp").forward(req,resp);
+
+
+        resp.sendRedirect(req.getContextPath() + "/Authentication");
 
     }
 }

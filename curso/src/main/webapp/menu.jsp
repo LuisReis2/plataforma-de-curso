@@ -22,7 +22,7 @@
         <ul>
         <c:if test="${User.getUserType() eq 'ADM'}">
             <li><a href="/find-all-users">Lista de Users</a></li>
-            <li><a href="/find-all-cursos">Lista de Cursos</a></li>
+            <li><a href="/ListCursos">Lista de Cursos</a></li>
             <li><a href="createUser.jsp">Cadastrar User</a></li>
             <li><a href="createCurso.jsp">Criar Curso</a></li>
             <li><a href="testeAula.jsp">Criar Aulas</a></li>
@@ -87,7 +87,7 @@
         }
     }
         function redirectToHome() {
-                window.location.href = "home.html";
+                window.location.href = "Authentication";
             }
 </script>
 </body>

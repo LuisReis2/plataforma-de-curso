@@ -25,11 +25,5 @@ public class ListUsersServlet extends HttpServlet {
         req.setAttribute("users", users);
         req.getRequestDispatcher("listUsers.jsp").forward(req, resp);
 
-        for (User user : users) {
-            System.out.println("Name: " + user.getUserName());
-            System.out.println("Email: " + user.getUserEmail());
-            System.out.println("Type: " + user.getUserType());
-            System.out.println();
-        }
     }
 }

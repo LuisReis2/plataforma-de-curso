@@ -31,8 +31,6 @@ public class DeleteCursoServlet extends HttpServlet {
 
         List<Curso> cursos = cursoDao.ListCurso();
 
-        req.setAttribute("cursos", cursos);
-        req.setAttribute("User", userLog);
-        req.getRequestDispatcher("menu.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/Authentication");
     }
 }

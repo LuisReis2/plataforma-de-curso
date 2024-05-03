@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
 
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="style/users.css">
+    <link rel="stylesheet" type="text/css" href="style/listUsers.css">
 </head>
 <body>
   <div>
-    <h1>list</h1>
+    <h1>LISTA DE AULAS</h1>
     <table border="1">
         <tr>
            <th>id</th>
@@ -19,15 +19,15 @@
         </tr>
         <c:forEach var="aula" items="${aula}">
             <tr>
-                 <td>${aula.getIdAula()}</td>
-                 <td>${aula.getTitleAula()}</td>
-                 <td>${aula.getContentAula()}</td>
-                 <td>${aula.getFkCurso()}</td>
+                 <td>${aula.idAula}</td>
+                 <td>${aula.titleAula}</td>
+                 <td>${aula.contentAula}</td>
+                 <td>${aula.fkCurso}</td>
                  <td>
                    <form action="/DeleteAula" method="post">
-                    <input type="hidden" id="IdAula" name="IdAula" value="${aula.getIdAula()}">
+                    <input type="hidden" id="IdAula" name="IdAula" value="${aula.idAula}">
                     <button type="submit">Delete</button>
-                    <a href="testeAula.jsp?idAula=${aula.getIdAula()}&aula-name=${aula.getTitleAula()}&aula-content=${aula.getContentAula()}&aula-fkid=${aula.getFkCurso()}">Update</a>
+                    <a href="testeAula.jsp?idAula=${aula.idAula}&fkCurso=${aula.fkCurso}">Update</a>
                     </form>
                  </td>
             </tr>

@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Cadastro de Usuário</title>
+    <title>CADASTRO DE AULAS</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        body {
+    body {
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(255, 0, 221); /* Cor de fundo escura */
   margin: 0;
   padding: 0;
   display: flex;
@@ -47,7 +46,6 @@ select {
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
-  background-color:rgb(255, 0, 221);
   color: #333; /* Alterado para cor padrão */
   font-size: 14px;
 }
@@ -89,46 +87,23 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente rosa */
 }
-
-/* Estilos adicionais para diferentes tipos de usuário */
-.form-admin {
-  background: linear-gradient(to right, #ff6347, #ffa500); /* Gradiente laranja */
-}
-
-.form-professor {
-  background: linear-gradient(to right, #32cd32, #228b22); /* Gradiente verde */
-}
-
-.form-student {
-  background: linear-gradient(to right, #6495ed, #4169e1); /* Gradiente azul */
-}
-
-/* Animação para destacar a label selecionada somente teste */
-@keyframes highlight-label {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-.highlight-label {
-  animation: highlight-label 0.5s ease-in-out;
-}
     </style>
 </head>
 <body>
 
 <form action="/create-aula" id="aula-form" method="post">
-    <h2>CRIE A AULA</h2>
-    <label for="idAula">id da AULA</label>
+    <h2>CADASTRE/ATUALIZE A AULA </h2>
+    <label for="idAula">ID AULA:</label>
     <input id="idAula" name="idAula" style="text-align: center;" type="text"  value="${param.idAula}" >
 
-    <label for="aula-name">TITULO DA AULA</label>
-    <input id="aula-name" name="aula-name" style="text-align: center;" type="text" value="${param.aula-name}" >
+    <label for="aula-name">TITULO DA AULA:</label>
+    <input id="aula-name" name="aula-name" style="text-align: center;" type="text"  >
 
-    <label for="aula-content">CONTEUDO DA AULA</label>
-    <input id="aula-content" name="aula-content" style="text-align: center;" type="text" value="${param.aula-content}" >
+    <label for="aula-content">CONTEUDO DA AULA:</label>
+    <input id="aula-content" name="aula-content" style="text-align: center;" type="text"  >
 
-    <label for="aula-fkid">ID DO CURSO ATRELADO: </label>
-    <input id="aula-fkid" name="aula-fkid" style="text-align: center;" type="text" value="${param.aula-fkid}">
+    <label for="fkCurso">ID DO CURSO ATRELADO: </label>
+    <input id="fkCurso" name="fkCurso" style="text-align: center;" type="text" value="${param.fkCurso}">
 
     <input type="submit" value="Cadastrar">
 </form>

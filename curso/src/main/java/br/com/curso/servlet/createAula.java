@@ -25,7 +25,7 @@ public class createAula  extends HttpServlet {
         id = req.getParameter("idAula");
         titulo = req.getParameter("aula-name");
         contentAula = req.getParameter("aula-content");
-        idFk = req.getParameter("aula-fkid");
+        idFk = req.getParameter("fkCurso");
 
         Aula aula = new Aula(id,idFk, titulo, contentAula);
         aulaDao auladao = new aulaDao();
@@ -37,15 +37,7 @@ public class createAula  extends HttpServlet {
         }
 
 
-        cursoDao cursoDao = new cursoDao();
-        userDao userDao = new userDao();
-        User userLog = userDao.userLogado();
-
-        new Authentication();
-        List<Curso> cursos = cursoDao.ListCurso();
-        req.setAttribute("cursos", cursos);
-        req.setAttribute("User", userLog);
-        req.getRequestDispatcher("menu.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/Authentication");
 
     }
 }
