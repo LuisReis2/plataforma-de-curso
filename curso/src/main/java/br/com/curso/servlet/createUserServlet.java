@@ -34,7 +34,7 @@ public class createUserServlet extends HttpServlet {
         } else {
             userDao.updateUser(user);
         }
-        // req.getRequestDispatcher("index.html").forward(req, resp);
-        resp.sendRedirect("/find-all-users");
+
+        resp.sendRedirect(req.getContextPath() + "/Authentication");
     }
 }

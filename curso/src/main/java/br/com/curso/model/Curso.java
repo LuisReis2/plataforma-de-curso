@@ -15,6 +15,8 @@ public class Curso {
         NomeCurso = nomeCurso;
     }
 
+
+
     public String getNomeCurso() {
         return NomeCurso;
     }

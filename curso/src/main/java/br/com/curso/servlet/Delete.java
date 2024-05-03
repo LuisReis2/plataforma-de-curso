@@ -22,7 +22,7 @@ public class Delete extends HttpServlet {
 
         new userDao().DeleteUser(id);
 
-        resp.sendRedirect("/find-all-users");
+        resp.sendRedirect(req.getContextPath() + "/Authentication");
     }
 
 }

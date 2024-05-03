@@ -207,7 +207,8 @@ public class userDao {
             if (resultSet.next()) {
                 String userName = resultSet.getString("user_name");
                 String type = resultSet.getString("user_type");
-                return new User(userName, email, type);
+                String pass = resultSet.getString("USER_PASSWORD");
+                return new User(userName, email,pass, type);
             } else {
 
                 return null;
