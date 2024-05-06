@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,34 +13,38 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-    <div class="profile-tab" onclick="toggleProfile()">
-        <img src="perfil.png" alt="Perfil" class="profile-icon">
-    </div>
+ 
+
+
 </header>
 
 <div>
     <h1>Cursos</h1>
     <table border="1">
         <tr>
-            <th>ID do Curso</th>
-            <th>Nome do Curso</th>
-            <th>Descrição</th>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descricao</th>
             <th>Actions</th>
         </tr>
         <c:forEach var="curso" items="${cursos}">
             <tr>
-                <td>${curso.idCurso}</td>
-                <td>${curso.nomeCurso}</td>
-                <td>${curso.descCurso}</td>
+                <td>${curso.getIdCurso()}</td>
+                <td>${curso.getNomeCurso()}</td>
+                <td>${curso.getDescCurso()}</td>
                 <td>
                     <form action="/delete-curso" method="post">
-                        <input type="hidden" id="idCurso" name="idCurso" value="${curso.idCurso}">
-                        <button class="action-button" type="submit">Delete</button>
+                        <input type="hidden" name="id" value="${curso.getIdCurso()}">
+                        <button type="submit">DELETE</button>
+                        <span> | </span>
+                        <a href="createCurso.jsp?idCurso=${curso.getIdCurso()}&nomeCurso=${curso.getNomeCurso()}&descCurso=${curso.getDescCurso()}">Update</a>
                     </form>
-                    <span> | </span>
-                    <a class="action-link" href="editarCurso.jsp?idCurso=${curso.idCurso}&nomeCurso=${curso.nomeCurso}&descCurso=${curso.descCurso}">Update</a>
+                    <form action="/find-aulas" method="post">
+                        <input type="hidden" name="idCurso" value="${curso.getIdCurso()}">
+                        <button type="submit">LISTA</button>
+                    </form>
                 </td>
             </tr>
         </c:forEach>

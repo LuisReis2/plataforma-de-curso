@@ -16,12 +16,11 @@ public class createCursoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         String nomeCurso = req.getParameter("nomeCurso");
         String descCurso = req.getParameter("descCurso");
         String idCurso = req.getParameter("idCurso");
 
-        Curso curso = new Curso(descCurso, nomeCurso);
+        Curso curso = new Curso(descCurso, nomeCurso,idCurso);
         cursoDao dao = new cursoDao();
 
         if (idCurso.isBlank()) {

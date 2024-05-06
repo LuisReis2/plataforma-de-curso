@@ -1,9 +1,7 @@
 package br.com.curso.servlet;
 
 import br.com.curso.dao.cursoDao;
-import br.com.curso.dao.userDao;
 import br.com.curso.model.Curso;
-import br.com.curso.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,18 +22,9 @@ public class listCursoServlet extends HttpServlet {
 
         List<Curso> cursos = new cursoDao().ListCurso();
 
-        req.setAttribute("cursos", cursos); // atributo para trabalhar no jsp
 
-
-        cursoDao cursoDao = new cursoDao();
-        userDao userDao = new userDao();
-        User userLog = userDao.userLogado();
-
-        req.setAttribute("cursos", cursos);
-        req.setAttribute("User", userLog);
-
-        req.getRequestDispatcher("menu.jsp").forward(req, resp);
-
+        req.setAttribute("cursos",cursos); // atributo para trabalhar no jsp
+        req.getRequestDispatcher("listCursos.jsp").forward(req, resp);
 
     }
 }

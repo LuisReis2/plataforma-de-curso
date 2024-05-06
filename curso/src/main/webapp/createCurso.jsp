@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,24 +11,23 @@
 <body>
 <header class="header">
     <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-    <div class="profile-tab" onclick="toggleProfile()">
-        <img src="perfil.png" alt="Perfil" class="profile-icon">
-    </div>
+        <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+    
 </header>
 
 <main>
     <h2>Criando Curso</h2>
-    <form id="cursoForm" action="/create-curso" method="post" onsubmit="return validateCursoForm()">
+    <form id="cursoForm" action="/create-curso" method="post">
         <label for="idCurso">ID do curso</label>
-        <input id="idCurso" name="idCurso" type="text" value="${param.idCurso}" required>
+        <input id="idCurso" name="idCurso" type="text" value="${param.idCurso}" >
 
         <label for="nomeCurso">Nome do curso</label>
-        <input id="nomeCurso" name="nomeCurso" type="text" value="${param.nomeCurso}" required>
+        <input id="nomeCurso" name="nomeCurso" type="text" value="${param.nomeCurso}" >
 
         <label for="descCurso">Descrição do curso</label>
-        <input id="descCurso" name="descCurso" type="text" value="${param.descCurso}" required>
+        <input id="descCurso" name="descCurso" type="text" value="${param.descCurso}" >
 
         <input type="submit" value="CRIAR">
     </form>
@@ -43,12 +43,6 @@
         <h2>Meu Perfil</h2>
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
     </div>
-    <div class="profile-body">
-    <c:if test="${User != null}">
-        <p>Nome: ${User.userName}</p>
-        <p>Email: ${User.userEmail}</p>
-    </c:if>
-    </div>
 </div>
 
 <script>
@@ -59,32 +53,6 @@
         } else {
             sidebar.style.right = "-300px";
         }
-    }
-
-    function validateCursoForm() {
-        var idCurso = document.getElementById("idCurso").value;
-        var nomeCurso = document.getElementById("nomeCurso").value;
-        var descCurso = document.getElementById("descCurso").value;
-        var errorMessages = document.getElementById("errorMessages");
-
-        errorMessages.innerHTML = "";
-
-        if (idCurso === "") {
-            errorMessages.innerHTML += "<p class='error-message'>Por favor, preencha o ID do curso.</p>";
-            return false;
-        }
-
-        if (nomeCurso === "") {
-            errorMessages.innerHTML += "<p class='error-message'>Por favor, preencha o nome do curso.</p>";
-            return false;
-        }
-
-        if (descCurso === "") {
-            errorMessages.innerHTML += "<p class='error-message'>Por favor, preencha a descrição do curso.</p>";
-            return false;
-        }
-
-        return true;
     }
 </script>
 </body>

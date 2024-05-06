@@ -65,7 +65,7 @@ public class authentication extends HttpServlet {
                             System.out.println(usuario.getUserEmail());
                             System.out.println(usuario.getUserName());
 
-                            req.setAttribute("cursos", cursos); // atributo para trabalhar no jsp
+                         // atributo para trabalhar no jsp
 
                             req.getRequestDispatcher("menu.jsp").forward(req, resp);
 
@@ -119,7 +119,7 @@ public class authentication extends HttpServlet {
                     List<Curso> cursos = new cursoDao().ListCurso(); // Listando cursos
 
 
-                    req.setAttribute("cursos", cursos); // atributo para trabalhar no jsp
+                     // atributo para trabalhar no jsp
 
                     req.getRequestDispatcher("menu.jsp").forward(req, resp);
 
