@@ -33,10 +33,10 @@ public class cursoDao {
     }
 
     public List<Curso> ListCurso() {
+        String SQL = "SELECT * FROM CURSOS";
 
 
         try {
-            String SQL = "SELECT * FROM CURSOS";
 
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("CONNECTIO SUCESS");
@@ -81,21 +81,22 @@ public class cursoDao {
     }
 
     public void updateCursoById(Curso curso) {
-
-        String SQL = "UPDATE CURSOS SET NOME_CURSO = ?, ID_CURSO = ?, DESC_CURSO = ? WHERE ID_CURSO = ?;";
+        String id = curso.getIdCurso();
+        String SQL = "UPDATE CURSOS SET NOME_CURSO = ?,DESC_CURSO = ? WHERE ID_CURSO = "+id+";";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, curso.getNomeCurso());
-            preparedStatement.setString(2, curso.getIdCurso());
-            preparedStatement.setString(3, curso.getDescCurso());
-            preparedStatement.setString(4, curso.getIdCurso());
+            preparedStatement.setString(2, curso.getDescCurso());
+            preparedStatement.setString(3, curso.getIdCurso());
             preparedStatement.execute();
-            System.out.println("UPDATE SUCESS");
+            System.out.println("UPDATE SUCCESSFUL");
+
             connection.close();
-        } catch (Exception a) {
-            System.out.println("UPDATE FAILED");
+        } catch (Exception e) {
+            System.out.println("UPDATE FAILED: " + e.getMessage());
         }
     }
+
 }

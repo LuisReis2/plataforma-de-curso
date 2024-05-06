@@ -11,11 +11,11 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-    <div class="profile-tab" onclick="toggleProfile()">
-        <img src="perfil.png" alt="Perfil" class="profile-icon">
-    </div>
+   
+
+
 </header>
 
 <main class="main-content">
@@ -37,16 +37,16 @@
                     <c:forEach var="aula" items="${aula}">
                         <tr>
                             <td>${aula.idAula}</td>
-                            <td>${aula.titulo}</td>
-                            <td>${aula.conteudo}</td>
-                            <td>${aula.cursoPertencente}</td>
+                            <td>${aula.titleAula}</td>
+                            <td>${aula.contentAula}</td>
+                            <td>${aula.fkCurso}</td>
                             <td>
                                 <form action="/delete-aula" method="post">
                                     <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
                                     <button type="submit">Excluir</button>
                                 </form>
                                 <span> | </span>
-                                <a href="updateAula.jsp?idAula=${aula.idAula}&cursoPertencente=${aula.cursoPertencente}">Atualizar</a>
+                                <a href="testeAula.jsp?idAula=${aula.idAula}&fkCurso=${aula.fkCurso}">Atualizar</a>
                             </td>
                         </tr>
                     </c:forEach>

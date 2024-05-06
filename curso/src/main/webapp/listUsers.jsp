@@ -10,11 +10,10 @@
 <body>
 <header class="header">
     <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-    <div class="profile-tab" onclick="toggleProfile()">
-        <img src="perfil.png" alt="Perfil" class="profile-icon">
-    </div>
+
+   
 </header>
 
 <div>

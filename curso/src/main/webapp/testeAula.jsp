@@ -69,26 +69,23 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo">
-    </div>
-    <div class="profile-tab" onclick="toggleProfile()">
-        <img src="perfil.png" alt="Perfil" class="profile-icon">
+        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
 </header>
 
 <form action="/create-aula" id="aula-form" method="post">
     <h2>CADASTRE/ATUALIZE A AULA </h2>
     <label for="idAula">ID AULA:</label>
-    <input id="idAula" name="idAula" type="text" required>
+    <input id="idAula" name="idAula" type="text" value="${param.idAula}" >
 
-    <label for="aula-name">TÍTULO DA AULA:</label>
+    <label for="aula-name">TITULO DA AULA:</label>
     <input id="aula-name" name="aula-name" type="text" required>
 
-    <label for="aula-content">CONTEÚDO DA AULA:</label>
+    <label for="aula-content">CONTEUDO DA AULA:</label>
     <input id="aula-content" name="aula-content" type="text" required>
 
     <label for="fkCurso">ID DO CURSO ATRELADO:</label>
-    <input id="fkCurso" name="fkCurso" type="text" required>
+    <input id="fkCurso" name="fkCurso" type="text" required value="${param.fkCurso}">
 
     <input type="submit" value="Cadastrar">
 </form>
