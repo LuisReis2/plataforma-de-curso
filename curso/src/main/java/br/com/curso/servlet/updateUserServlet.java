@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/update-user")
-public class Update extends HttpServlet {
+public class updateUserServlet extends HttpServlet {
 
     @java.lang.Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        new Authentication();
+        new authentication();
 
         String username = req.getParameter("user-name");
         String email = req.getParameter("email");

@@ -16,8 +16,9 @@ import java.util.List;
 
 @WebServlet("/Authentication")
 
-public class Authentication extends HttpServlet {
+public class authentication extends HttpServlet {
     private HttpSession session;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -89,6 +90,7 @@ public class Authentication extends HttpServlet {
             req.getRequestDispatcher("loginError.html").forward(req, resp);
         }
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //armazenando informações para fazer a verificação
@@ -136,8 +138,7 @@ public class Authentication extends HttpServlet {
         }
 
 
-
-        }
     }
+}
 
 

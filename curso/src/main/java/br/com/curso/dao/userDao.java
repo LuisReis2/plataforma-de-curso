@@ -141,7 +141,7 @@ public class userDao {
 
     }
 
-    public void DeleteUser(String email){
+    public void DeleteUser(String email) {
         String SQL = "DELETE USERS WHERE USER_EMAIL = ?";
 
         try {
@@ -163,41 +163,42 @@ public class userDao {
             System.out.println("fail in database connection");
 
         }
-   }
+    }
 
-   public void updateUser(User user){
+    public void updateUser(User user) {
         String SQL = "UPDATE USERS SET USER_NAME = ?, USER_PASSWORD = ?, USER_TYPE = ? WHERE USER_EMAIL = ?";
-       try {
+        try {
 
-           Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
-           System.out.println("tentando enviar informações");
+            System.out.println("tentando enviar informações");
 
-           PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-           preparedStatement.setString(1, user.getUserName());
-           System.out.println("primeiro check");
-           preparedStatement.setString(2, user.getUserPass());
-           preparedStatement.setString(3, user.getUserType());
-           preparedStatement.setString(4, user.getUserEmail());
-           preparedStatement.execute();
+            preparedStatement.setString(1, user.getUserName());
+            System.out.println("primeiro check");
+            preparedStatement.setString(2, user.getUserPass());
+            preparedStatement.setString(3, user.getUserType());
+            preparedStatement.setString(4, user.getUserEmail());
+            preparedStatement.execute();
 
-           System.out.println("success in update car");
+            System.out.println("success in update car");
 
-           connection.close();
+            connection.close();
 
-       } catch (Exception e) {
+        } catch (Exception e) {
 
-           System.out.println("fail in database connection");
-           System.out.println("Error: " + e.getMessage());
+            System.out.println("fail in database connection");
+            System.out.println("Error: " + e.getMessage());
 
-       }
-   }
-   public User returnUser(String  email){
+        }
+    }
+
+    public User returnUser(String email) {
 
         try {
             String SQL = "SELECT * FROM USERS WHERE USER_EMAIL = ?;";
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("Conection sucess");
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -208,58 +209,59 @@ public class userDao {
                 String userName = resultSet.getString("user_name");
                 String type = resultSet.getString("user_type");
                 String pass = resultSet.getString("USER_PASSWORD");
-                return new User(userName, email,pass, type);
+                return new User(userName, email, pass, type);
             } else {
 
                 return null;
             }
 
-        }catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
 
-   }
+    }
 
-   public User userLogado(){ // Ele retornará o usuário logado
+    public User userLogado() { // Ele retornará o usuário logado
         String SQL = "SELECT  USER_EMAIL FROM USER_LOGADO";
 
-        try{
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            ResultSet resultSet =preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
             String email = null;
-            if(resultSet.next()){
-                 email = resultSet.getString("user_email");
+            if (resultSet.next()) {
+                email = resultSet.getString("user_email");
             }
             User user = returnUser(email); // retorna um usuário de acordo com o email
             return user;
-        }catch (Exception a){
+        } catch (Exception a) {
             return null;
         }
 
-   }
-   public void registraUserLogado(User user){ // Vai receber um user na autenticaçção e vai registrar ele na entidade user_logado.
+    }
+
+    public void registraUserLogado(User user) { // Vai receber um user na autenticaçção e vai registrar ele na entidade user_logado.
         String SQL = "INSERT INTO user_logado(user_name, user_email, user_password, user_type) VALUES (?, ?, ?, ?);";
-       System.out.println("CONNECTION SUCESS");
+        System.out.println("CONNECTION SUCESS");
         String DELETE = "DELETE USER_LOGADO";
 
 
-        try{
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             PreparedStatement delete = connection.prepareStatement(DELETE);
             delete.execute();
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2 , user.getUserEmail());
+            preparedStatement.setString(2, user.getUserEmail());
             preparedStatement.setString(3, user.getUserPass());
             preparedStatement.setString(4, user.getUserType());
             preparedStatement.execute();
             System.out.println("LOGIN SALVO!");
             connection.close();
-        }catch (Exception a){
+        } catch (Exception a) {
             System.out.println("ERRO AO LOGAR");
         }
-   }
+    }
 }

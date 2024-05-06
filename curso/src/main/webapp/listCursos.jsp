@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Lista de Cursos</title>
     <link rel="stylesheet" type="text/css" href="style/listUsers.css">
     <link rel="stylesheet" href="style/menu.css">
 </head>
 <body>
+
 <header class="header">
     <div class="logo-container">
         <img src="logo.png" alt="Logo" class="logo">
@@ -18,26 +19,26 @@
 </header>
 
 <div>
-    <h1>Users</h1>
+    <h1>Cursos</h1>
     <table border="1">
         <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Type</th>
+            <th>ID do Curso</th>
+            <th>Nome do Curso</th>
+            <th>Descrição</th>
             <th>Actions</th>
         </tr>
-        <c:forEach var="user" items="${users}">
+        <c:forEach var="curso" items="${cursos}">
             <tr>
-                <td>${user.userEmail}</td>
-                <td>${user.userName}</td>
-                <td>${user.userType}</td>
+                <td>${curso.idCurso}</td>
+                <td>${curso.nomeCurso}</td>
+                <td>${curso.descCurso}</td>
                 <td>
-                    <form action="/delete" method="post">
-                        <input type="hidden" id="userEmail" name="userEmail" value="${user.userEmail}">
+                    <form action="/delete-curso" method="post">
+                        <input type="hidden" id="idCurso" name="idCurso" value="${curso.idCurso}">
                         <button class="action-button" type="submit">Delete</button>
                     </form>
                     <span> | </span>
-                    <a class="action-link" href="createUser.jsp?email=${user.userEmail}&user-name=${user.userName}&type=${user.userType}&password=${user.userPass}">Update</a>
+                    <a class="action-link" href="editarCurso.jsp?idCurso=${curso.idCurso}&nomeCurso=${curso.nomeCurso}&descCurso=${curso.descCurso}">Update</a>
                 </td>
             </tr>
         </c:forEach>
@@ -71,5 +72,6 @@
         }
     }
 </script>
+
 </body>
 </html>

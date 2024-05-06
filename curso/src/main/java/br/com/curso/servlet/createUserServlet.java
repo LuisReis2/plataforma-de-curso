@@ -17,7 +17,7 @@ public class createUserServlet extends HttpServlet {
     @java.lang.Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        new Authentication();
+        new authentication();
 
         String username = req.getParameter("user-name");
         String email = req.getParameter("email");
@@ -26,10 +26,9 @@ public class createUserServlet extends HttpServlet {
         User user = new User(username, email, password, type);
 
 
-
         userDao userDao = new userDao();
         List<String> usersEmailsBD = new userDao().listEmail();
-        if(!(usersEmailsBD.contains(email))){
+        if (!(usersEmailsBD.contains(email))) {
             userDao.createUser(user);
         } else {
             userDao.updateUser(user);

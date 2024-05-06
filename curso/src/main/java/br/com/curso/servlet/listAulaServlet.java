@@ -13,17 +13,17 @@ import java.util.List;
 
 
 @WebServlet("/find-aulas")
-public class ListAulas extends HttpServlet {
+public class listAulaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        new Authentication();
+        new authentication();
 
         String idCurso = req.getParameter("idCurso");
 
         List<Aula> aula = new aulaDao().listFkId(idCurso);
         req.setAttribute("aula", aula);
-        req.getRequestDispatcher("list.jsp").forward(req, resp);
+        req.getRequestDispatcher("listAulas.jsp").forward(req, resp);
     }
 }

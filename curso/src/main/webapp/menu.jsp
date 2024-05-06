@@ -21,10 +21,11 @@
     <nav class="menu">
         <ul>
         <c:if test="${User.getUserType() eq 'ADM'}">
-            <li><a href="/find-all-users">Lista de Users</a></li>
-            <li><a href="/ListCursos">Lista de Cursos</a></li>
-            <li><a href="createUser.jsp">Cadastrar User</a></li>
+            <li><a href="/find-all-users">Lista de Usuarios</a></li>
+            <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
+            <li><a href="listCursos.jsp">Lista de Cursos</a></li>
             <li><a href="createCurso.jsp">Criar Curso</a></li>
+            <li><a href="listAulas.jsp">Lista de Aulas</a></li>
             <li><a href="testeAula.jsp">Criar Aulas</a></li>
         </c:if>
         </ul>

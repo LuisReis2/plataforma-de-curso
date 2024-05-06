@@ -12,60 +12,60 @@ import java.util.List;
 
 public class aulaDao {
 
-   public void createAula(Aula aula){
-       String SQL = "INSERT INTO aula (TITLE_AULA, CONTENT_AULA, ID_CURSO_FK) values (? , ? , ?)";
+    public void createAula(Aula aula) {
+        String SQL = "INSERT INTO aula (TITLE_AULA, CONTENT_AULA, ID_CURSO_FK) values (? , ? , ?)";
 
-       try {
-           Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
-           PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-           preparedStatement.setString(1, aula.getTitleAula());
-           preparedStatement.setString(2, aula.getContentAula());
-           preparedStatement.setString(3, aula.getFkCurso());
-           preparedStatement.execute();
-           connection.close();
+            preparedStatement.setString(1, aula.getTitleAula());
+            preparedStatement.setString(2, aula.getContentAula());
+            preparedStatement.setString(3, aula.getFkCurso());
+            preparedStatement.execute();
+            connection.close();
 
-       }catch (Exception e){
-           System.out.println("deu erro menó");
-       }
-   }
+        } catch (Exception e) {
+            System.out.println("deu erro menó");
+        }
+    }
 
-   public List<Aula> listFkId(String id) {
-       String SQL = "select * from aula where ID_CURSO_FK =  ?";
+    public List<Aula> listFkId(String id) {
+        String SQL = "select * from aula where ID_CURSO_FK =  ?";
 
-       try {
-           Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-           PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-           preparedStatement.setString(1, id);
-           preparedStatement.execute();
-           ResultSet resultSet = preparedStatement.executeQuery();
-           List<Aula> fkid = new ArrayList<>();
-           while (resultSet.next()) {
-               String idS = resultSet.getNString("ID_AULA");
-               String titulo = resultSet.getNString("TITLE_AULA");
-               System.out.println(titulo);
-               String content = resultSet.getNString("CONTENT_AULA");
-               System.out.println(content);
-               String idfk = resultSet.getNString("ID_curso_FK");
-               System.out.println(idfk);
-               Aula aula = new Aula(idS,idfk,titulo,content);
-               fkid.add(aula);
-           }
-           connection.close();
-           return fkid;
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Aula> fkid = new ArrayList<>();
+            while (resultSet.next()) {
+                String idS = resultSet.getNString("ID_AULA");
+                String titulo = resultSet.getNString("TITLE_AULA");
+                System.out.println(titulo);
+                String content = resultSet.getNString("CONTENT_AULA");
+                System.out.println(content);
+                String idfk = resultSet.getNString("ID_curso_FK");
+                System.out.println(idfk);
+                Aula aula = new Aula(idS, idfk, titulo, content);
+                fkid.add(aula);
+            }
+            connection.close();
+            return fkid;
 
-       } catch (Exception e) {
-           System.out.println("fail aula");
-           return Collections.emptyList();
-       }
+        } catch (Exception e) {
+            System.out.println("fail aula");
+            return Collections.emptyList();
+        }
 
 
-   }
+    }
 
-    public void deleteAulaBYid(String ID_AULA){
+    public void deleteAulaBYid(String ID_AULA) {
         String sql = "delete aula where ID_AULA = ?";
-        try{
+        try {
 
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
@@ -75,34 +75,33 @@ public class aulaDao {
             preparedStatement.setString(1, ID_AULA);
             preparedStatement.execute();
 
-            System.out.println("success on delete AULA with id: " + ID_AULA );
+            System.out.println("success on delete AULA with id: " + ID_AULA);
 
             connection.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("fail in database connection");
         }
     }
 
-    public void updateAula(Aula aula){
+    public void updateAula(Aula aula) {
         String sql = "UPDATE AULA SET TITLE_AULA = ?, CONTENT_AULA = ?, ID_CURSO_FK = ? WHERE ID_AULA = ?";
 
-        try{
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa","sa");
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("iniciando o update");
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,aula.getTitleAula());
-            preparedStatement.setString(2,aula.getContentAula());
-            preparedStatement.setString(3,aula.getFkCurso());
-            preparedStatement.setString(4,aula.getIdAula());
+            preparedStatement.setString(1, aula.getTitleAula());
+            preparedStatement.setString(2, aula.getContentAula());
+            preparedStatement.setString(3, aula.getFkCurso());
+            preparedStatement.setString(4, aula.getIdAula());
             preparedStatement.execute();
             System.out.println("update concluido");
             connection.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("falha na conexão");
-            System.out.println("erro: "+e.getMessage());
+            System.out.println("erro: " + e.getMessage());
         }
     }
-
 
 
 }

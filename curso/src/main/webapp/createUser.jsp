@@ -4,34 +4,66 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cadastro de Usuário</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style/create-style.css">
+    <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" href="style/createUser.css">
 </head>
 <body>
 
-<form action="/create-user" id="user-form" method="post">
-    <h2>Cadastro de Usuário</h2>
-    <label for="user-name">Nome</label>
-    <input id="user-name" name="user-name" style="text-align: center;" type="text" value="${param.user-name}">
-
-    <label for="email">Email</label>
-    <input id="email" name="email" style="text-align: center;" type="text" value="${param.email}">
-
-    <label for="password">Senha</label>
-    <input id="password" name="password" style="text-align: center;" type="text" value="${param.password}">
-
-    <label for="type" id="user-type-label" style="color: #fff;">Tipo de Usuario</label>
-    <div class="select-wrapper">
-        <select id="type" name="type" onchange="changeFormStyle()" value="${param.type}">
-            <option value="ADM"><i class="fas fa-user-shield"></i> Administrador</option>
-            <option value="PROFESSOR"><i class="fas fa-chalkboard-teacher"></i> Professor</option>
-            <option value="STUDENT"><i class="fas fa-user-graduate"></i> Aluno</option>
-        </select>
-        <div class="select-arrow"><i class="fas fa-chevron-down"></i></div>
+<header class="header">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo">
     </div>
+    <div class="profile-tab" onclick="toggleProfile()">
+        <img src="perfil.png" alt="Perfil" class="profile-icon">
+    </div>
+</header>
 
-    <input type="submit" value="Cadastrar">
-</form>
-<script src="scripts/validade-create.js"></script>
+<main>
+    <form action="/create-user" id="user-form" method="post">
+        <label for="user-name">Nome</label>
+        <input id="user-name" name="user-name" type="text" value="${param.user-name}" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" value="${param.email}" required>
+
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" value="${param.password}" required>
+
+        <label for="type">Tipo de Usuário</label>
+        <select id="type" name="type" required>
+            <option value="ADM">Administrador</option>
+            <option value="PROFESSOR">Professor</option>
+            <option value="STUDENT">Aluno</option>
+        </select>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</main>
+
+<footer class="footer">
+    <!-- Conteúdo do rodapé, se houver -->
+</footer>
+
+<div class="profile-sidebar" id="profileSidebar">
+    <div class="profile-header">
+        <h2>Meu Perfil</h2>
+        <button class="close-btn" onclick="toggleProfile()">Fechar</button>
+    </div>
+    <div class="profile-body">
+        <!-- Conteúdo do perfil, se houver -->
+    </div>
+</div>
+
+<script>
+    function toggleProfile() {
+        var sidebar = document.getElementById("profileSidebar");
+        if (sidebar.style.right === "-300px") {
+            sidebar.style.right = "0";
+        } else {
+            sidebar.style.right = "-300px";
+        }
+    }
+</script>
+
 </body>
 </html>

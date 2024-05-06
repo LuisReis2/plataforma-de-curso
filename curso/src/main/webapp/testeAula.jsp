@@ -3,109 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>CADASTRO DE AULAS</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Cadastro de Aulas</title>
+    <link rel="stylesheet" href="style/menu.css">
     <style>
-    body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-form {
-  background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente roxo */
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgb(255, 0, 221);
-  width: 300px;
-  position: relative;
-  transition: background-color 0.3s;
-}
-h2 {
-  text-align: center;
-  color: #fff;
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-label {
-  color: #fff;
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
-  transition: transform 0.3s;
-}
-input[type="text"],
-select {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: #333; /* Alterado para cor padrão */
-  font-size: 14px;
-}
-.select-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-.select-wrapper select {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(255, 0, 221);
-  color: #333; /* Alterado para cor padrão */
-  font-size: 14px;
-  cursor: pointer;
-}
-.select-arrow {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #fff;
-}
-input[type="submit"] {
-  background: linear-gradient(to right, #1badd1, #6f0aad); /* Gradiente rosa */
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-input[type="submit"]:hover {
-  background: linear-gradient(to right, #6f0aad, #1badd1); /* Gradiente rosa */
-}
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #E4D6FF;
+            color: rgb(211, 255, 253);
+        }
+
+        h2 {
+            text-align: center;
+            color: #402D65;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #402D65;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            box-sizing: border-box;
+            border: 1px solid #6D5A93;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+            background-color: #402D65;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6D5A93;
+        }
     </style>
 </head>
 <body>
 
+<header class="header">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="profile-tab" onclick="toggleProfile()">
+        <img src="perfil.png" alt="Perfil" class="profile-icon">
+    </div>
+</header>
+
 <form action="/create-aula" id="aula-form" method="post">
     <h2>CADASTRE/ATUALIZE A AULA </h2>
     <label for="idAula">ID AULA:</label>
-    <input id="idAula" name="idAula" style="text-align: center;" type="text"  value="${param.idAula}" >
+    <input id="idAula" name="idAula" type="text" required>
 
-    <label for="aula-name">TITULO DA AULA:</label>
-    <input id="aula-name" name="aula-name" style="text-align: center;" type="text"  >
+    <label for="aula-name">TÍTULO DA AULA:</label>
+    <input id="aula-name" name="aula-name" type="text" required>
 
-    <label for="aula-content">CONTEUDO DA AULA:</label>
-    <input id="aula-content" name="aula-content" style="text-align: center;" type="text"  >
+    <label for="aula-content">CONTEÚDO DA AULA:</label>
+    <input id="aula-content" name="aula-content" type="text" required>
 
-    <label for="fkCurso">ID DO CURSO ATRELADO: </label>
-    <input id="fkCurso" name="fkCurso" style="text-align: center;" type="text" value="${param.fkCurso}">
+    <label for="fkCurso">ID DO CURSO ATRELADO:</label>
+    <input id="fkCurso" name="fkCurso" type="text" required>
 
     <input type="submit" value="Cadastrar">
 </form>
+
+<footer class="footer">
+
+</footer>
+
+<script>
+    function toggleProfile() {
+        var sidebar = document.getElementById("profileSidebar");
+        if (sidebar.style.right === "-300px") {
+            sidebar.style.right = "0";
+        } else {
+            sidebar.style.right = "-300px";
+        }
+    }
+</script>
+
 </body>
 </html>
