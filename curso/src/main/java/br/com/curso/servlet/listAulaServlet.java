@@ -1,7 +1,9 @@
 package br.com.curso.servlet;
 
 import br.com.curso.dao.aulaDao;
+import br.com.curso.dao.userDao;
 import br.com.curso.model.Aula;
+import br.com.curso.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,12 +19,10 @@ public class listAulaServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        new authentication();
-
         String idCurso = req.getParameter("idCurso");
 
         List<Aula> aula = new aulaDao().listFkId(idCurso);
+
         req.setAttribute("aula", aula);
         req.getRequestDispatcher("listAulas.jsp").forward(req, resp);
     }

@@ -6,6 +6,9 @@ public class User {
     private String userPass;
     private String userType;
 
+    public User() {
+    }
+
     public User(String name, String email, String pass, String type) {
         this.userName = name;
         this.userEmail = email;

@@ -118,9 +118,6 @@ public class authentication extends HttpServlet {
 
                     List<Curso> cursos = new cursoDao().ListCurso(); // Listando cursos
 
-
-                     // atributo para trabalhar no jsp
-
                     req.getRequestDispatcher("menu.jsp").forward(req, resp);
 
                 } else if (userType.equals("PROFESSOR")) {
@@ -136,8 +133,6 @@ public class authentication extends HttpServlet {
                 }
             }
         }
-
-
     }
 }
 
