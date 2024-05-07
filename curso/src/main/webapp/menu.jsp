@@ -29,9 +29,28 @@
         </c:if>
         </ul>
     </nav>
-
+    <c:if test="${User.getUserType() eq 'STUDENT'}">
+        <nav class="menu">
+            <ul>
+            <c:if test="${User.getUserType() eq 'STUDENT'}">
+                <li><a href="/ListCursos">TODOS OS CURSOS DO SITE</a></li>
+                <li><a href="parti">Curso Participante</a></li>
+            </c:if>
+            </ul>
+        </nav>
+        <iframe src="/ListCursos" width="680" height="780">
+        </iframe>
+    </c:if>
+    <c:if test="${User.getUserType() eq 'PROFESSOR'}">
+        <nav class="menu">
+            <ul>
+                <li><a href="/ListCursos">Lista de Cursos</a></li>
+                <li><a href="createCurso.jsp">Criar Curso</a></li>
+                <li><a href="testeAula.jsp">Criar Aulas</a></li>
+            </ul>
+        </nav>
+    </c:if>
 </main>
-
 <footer class="footer">
 
 </footer>

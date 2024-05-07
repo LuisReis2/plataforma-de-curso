@@ -11,11 +11,7 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-   
-
-
 </header>
 
 <main class="main-content">
@@ -29,10 +25,10 @@
                 <table border="1">
                     <tr>
                         <th>ID</th>
-                        <th>Título</th>
-                        <th>Conteúdo</th>
+                        <th>TITULO</th>
+                        <th>CONTEUDO</th>
                         <th>Curso Pertencente</th>
-                        <th>Ações</th>
+                        <th>ACTION</th>
                     </tr>
                     <c:forEach var="aula" items="${aula}">
                         <tr>
