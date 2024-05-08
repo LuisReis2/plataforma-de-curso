@@ -81,8 +81,8 @@ public class cursoDao {
     }
 
     public void updateCursoById(Curso curso) {
-        String id = curso.getIdCurso();
-        String SQL = "UPDATE CURSOS SET NOME_CURSO = ?,DESC_CURSO = ? WHERE ID_CURSO = "+id+";";
+
+        String SQL = "UPDATE CURSOS SET NOME_CURSO = ?,DESC_CURSO = ? WHERE ID_CURSO = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
