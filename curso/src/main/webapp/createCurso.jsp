@@ -13,8 +13,10 @@
     <div class="logo-container">
         <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-        <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
-    
+     <div class="profile-tab" onclick="toggleProfile()">
+            <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+     </div>
+
 </header>
 
 <main>
