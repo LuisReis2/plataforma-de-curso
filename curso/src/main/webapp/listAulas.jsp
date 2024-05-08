@@ -11,7 +11,12 @@
 
 <header class="header">
     <div class="logo-container">
+        <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
+     <div class="profile-tab" onclick="toggleProfile()">
+            <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+     </div>
+
 </header>
 
 <main class="main-content">

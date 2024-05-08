@@ -71,6 +71,10 @@
     <div class="logo-container">
         <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
+     <div class="profile-tab" onclick="toggleProfile()">
+            <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+     </div>
+
 </header>
 
 <form action="/create-aula" id="aula-form" method="post">
@@ -91,8 +95,15 @@
 </form>
 
 <footer class="footer">
-
+    <!-- Conteúdo do rodapé, se houver -->
 </footer>
+
+<div class="profile-sidebar" id="profileSidebar">
+    <div class="profile-header">
+        <h2>Meu Perfil</h2>
+        <button class="close-btn" onclick="toggleProfile()">Fechar</button>
+    </div>
+</div>
 
 <script>
     function toggleProfile() {
