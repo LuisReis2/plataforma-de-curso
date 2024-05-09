@@ -58,7 +58,7 @@
 </main>
 
 <footer class="footer">
-    <!-- Conteúdo do rodapé, se houver -->
+
 </footer>
 
 <div class="profile-sidebar" id="profileSidebar">
@@ -73,16 +73,7 @@
         </c:if>
     </div>
 
-<script>
-    function toggleProfile() {
-        var sidebar = document.getElementById("profileSidebar");
-        if (sidebar.style.right === "-300px") {
-            sidebar.style.right = "0";
-        } else {
-            sidebar.style.right = "-300px";
-        }
-    }
-</script>
+<script src="scripts/sidebar.js"></script>
 
 </body>
 </html>
