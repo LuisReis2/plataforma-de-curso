@@ -28,6 +28,8 @@
             <li><a href="createCurso.jsp">Criar Curso</a></li>
             <li><a href="listAulas.jsp">Lista de Aulas</a></li>
             <li><a href="testeAula.jsp">Criar Aulas</a></li>
+            <li><a href="createParticipantes.jsp">Criar Participante</a></li>
+            <li><a href="/ListParticipantes">Listar Participante</a></li>
         </c:if>
         </ul>
     </nav>
@@ -43,15 +45,16 @@
         <iframe src="/ListCursos" width="680" height="780">
         </iframe>
     </c:if>
-    <c:if test="${User.getUserType() eq 'PROFESSOR'}">
         <nav class="menu">
             <ul>
+             <c:if test="${User.getUserType() eq 'PROFESSOR'}">
                 <li><a href="/ListCursos">Lista de Cursos</a></li>
                 <li><a href="createCurso.jsp">Criar Curso</a></li>
                 <li><a href="testeAula.jsp">Criar Aulas</a></li>
+               </c:if>
             </ul>
         </nav>
-    </c:if>
+
 </main>
 <footer class="footer">
 
