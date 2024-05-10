@@ -17,7 +17,6 @@ public class createUserServlet extends HttpServlet {
     @java.lang.Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        new authentication();
 
         String username = req.getParameter("user-name");
         String email = req.getParameter("email");

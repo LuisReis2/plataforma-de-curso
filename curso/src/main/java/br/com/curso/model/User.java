@@ -21,6 +21,10 @@ public class User {
         this.userEmail = email;
         this.userType = type;
     }
+    public User( String email, String pass) { // OVERLOAD PARA O LISTUSER
+        this.userEmail = email;
+        this.userPass = pass;
+    }
 
     public String getUserName() {
         return userName;

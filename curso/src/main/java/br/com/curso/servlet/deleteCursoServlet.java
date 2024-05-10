@@ -19,7 +19,6 @@ public class deleteCursoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        new authentication();
 
         String id = req.getParameter("id");
         cursoDao cursoDao = new cursoDao();
@@ -27,7 +26,7 @@ public class deleteCursoServlet extends HttpServlet {
 
         cursoDao.deleteCarById(id);
 
-        User userLog = userDao.userLogado();
+//        User userLog = userDao.userLogado();
 
         List<Curso> cursos = cursoDao.ListCurso();
 
