@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -24,16 +25,18 @@
     <div class="right-login">
         <div class="card-login">
 
-            <form action="/Authentication" method="post">
+            <form action="/login" method="post">
 
                 <div class="textfield">
-                    <label for="usuario">Email: </label>
-                    <input id="usuario" name="email" placeholder="Email" type="email">
+                    <label for="email">Email: </label>
+                    <input id="email" name="email" placeholder="Email" type="email">
                 </div>
                 <div class="textfield">
                     <label for="senha">Senha: </label>
                     <input id="senha" name="senha" placeholder="Senha" type="password">
                 </div>
+                <span>${requestScope.message}<span>
+                <br>
                 <button class="btn-login">Login</button>
             </form>
         </div>

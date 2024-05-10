@@ -14,7 +14,6 @@ public class deleteUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        new authentication();
 
         String id = req.getParameter("userEmail");
 

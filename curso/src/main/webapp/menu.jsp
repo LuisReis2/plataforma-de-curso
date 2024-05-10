@@ -21,7 +21,7 @@
 <main class="main-content">
     <nav class="menu">
         <ul>
-        <c:if test="${User.getUserType() eq 'ADM'}">
+        <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
             <li><a href="/find-all-users">Lista de Usuarios</a></li>
             <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
             <li><a href="/ListCursos">Lista de Cursos</a></li>
@@ -33,10 +33,10 @@
         </c:if>
         </ul>
     </nav>
-    <c:if test="${User.getUserType() eq 'STUDENT'}">
+    <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
         <nav class="menu">
             <ul>
-            <c:if test="${User.getUserType() eq 'STUDENT'}">
+            <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
                 <li><a href="/ListCursos">TODOS OS CURSOS DO SITE</a></li>
                 <li><a href="parti">Curso Participante</a></li>
             </c:if>
@@ -66,9 +66,9 @@
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
     </div>
     <div class="profile-body">
-    <c:if test="${User != null}">
-        <p>Nome: ${User.userName}</p>
-        <p>Email: ${User.userEmail}</p>
+    <c:if test="${sessionScope.UserLog != null}">
+        <p>Nome: ${sessionScope.UserLog.userName}</p>
+        <p>Email: ${sessionScope.UserLog.userEmail}</p>
     </c:if>
     </div>
 

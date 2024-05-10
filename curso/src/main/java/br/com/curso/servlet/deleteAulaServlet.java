@@ -19,20 +19,19 @@ public class deleteAulaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        new authentication();
 
         String aulaid = req.getParameter("IdAula");
 
         cursoDao cursoDao = new cursoDao();
         userDao userDao = new userDao();
-        User userLog = userDao.userLogado();
+//        User userLog = userDao.userLogado();
 
         List<Curso> cursos = cursoDao.ListCurso();
 
         new aulaDao().deleteAulaBYid(aulaid);
 
         req.setAttribute("cursos", cursos);
-        req.setAttribute("User", userLog);
+//        req.setAttribute("User", userLog);
 
         resp.sendRedirect(req.getContextPath() + "/Authentication");
     }
