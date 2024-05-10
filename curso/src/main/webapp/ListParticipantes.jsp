@@ -19,26 +19,26 @@
 </header>
 
 <div>
-    <h1>Users</h1>
+    <h1>PARTICIPANTES</h1>
     <table border="1">
         <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Type</th>
+            <th>ID PARTICIPANTES</th>
+            <th>ID DE USAURIO DO PARTICIPANTE</th>
+            <th>ID DO CURSO CUJO USAURIO PERTENCE</th>
             <th>Actions</th>
         </tr>
-        <c:forEach var="user" items="${users}">
+        <c:forEach var="participantes" items="${participantes}">
             <tr>
-                <td>${user.userEmail}</td>
-                <td>${user.userName}</td>
-                <td>${user.userType}</td>
+                <td>${participantes.idParticipante}</td>
+                <td>${participantes.idUserFk}</td>
+                <td>${participantes.idCursoFk}</td>
                 <td>
-                    <form action="/delete" method="post">
-                        <input type="hidden" id="userEmail" name="userEmail" value="${user.userEmail}">
-                        <button class="action-button" type="submit">Delete</button>
-                    </form>
+                  <form action="/delete-participante" method="post">
+                   <input type="hidden" id="idParticipante" name = "idParticipante" value="${participantes.idParticipante}">
+                   <button type="submit">DELETE</button>
                     <span> | </span>
-                    <a class="action-link" href="createUser.jsp?email=${user.userEmail}&user-name=${user.userName}&type=${user.userType}&password=${user.userPass}">Update</a>
+                    <a href="createParticipantes.jsp?idParticipante=${participantes.idParticipante}&idUserFk=${participantes.idUserFk}&idCursoFk=${participantes.idCursoFk}">Update</a>
+                    </form>
                 </td>
             </tr>
         </c:forEach>
@@ -62,7 +62,15 @@
     </div>
 </div>
 
-<script src="scripts/sidebar.js"></script>
-
+<script>
+    function toggleProfile() {
+        var sidebar = document.getElementById("profileSidebar");
+        if (sidebar.style.right === "-300px") {
+            sidebar.style.right = "0";
+        } else {
+            sidebar.style.right = "-300px";
+        }
+    }
+</script>
 </body>
 </html>

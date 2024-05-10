@@ -20,16 +20,16 @@
 </header>
 
 <main>
-    <h2>Criando Curso</h2>
-    <form id="cursoForm" action="/create-curso" method="post">
-        <label for="idCurso">ID do curso</label>
-        <input id="idCurso" name="idCurso" type="text" value="${param.idCurso}" >
+    <h2>ADICIONANDO PARTICIPANTES AO CURSO</h2>
+    <form id="cursoForm" action="/create-participantes" method="post">
+        <label for="idParticipante">ID PARTICIPANTE</label>
+        <input id="idParticipante" name="idParticipante" type="text" value="${param.idParticipante}" >
 
-        <label for="nomeCurso">Nome do curso</label>
-        <input id="nomeCurso" name="nomeCurso" type="text" value="${param.nomeCurso}" >
+        <label for="idUserFk">ID DO USUARIO</label>
+        <input id="idUserFk" name="idUserFk" type="text" value="${param.idUserFk}" >
 
-        <label for="descCurso">Descrição do curso</label>
-        <input id="descCurso" name="descCurso" type="text" value="${param.descCurso}" >
+        <label for="idCursoFk">ID DO CURSO</label>
+        <input id="idCursoFk" name="idCursoFk" type="text" value="${param.idCursoFk}" >
 
         <input type="submit" value="CRIAR">
     </form>
@@ -47,7 +47,15 @@
     </div>
 </div>
 
-<script src="scripts/sidebar.js"></script>
-
+<script>
+    function toggleProfile() {
+        var sidebar = document.getElementById("profileSidebar");
+        if (sidebar.style.right === "-300px") {
+            sidebar.style.right = "0";
+        } else {
+            sidebar.style.right = "-300px";
+        }
+    }
+</script>
 </body>
 </html>

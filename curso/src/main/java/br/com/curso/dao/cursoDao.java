@@ -1,6 +1,7 @@
 package br.com.curso.dao;
 
 import br.com.curso.model.Curso;
+import br.com.curso.model.Participantes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,7 +38,6 @@ public class cursoDao {
 
 
         try {
-
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             System.out.println("CONNECTIO SUCESS");
 
@@ -51,7 +51,6 @@ public class cursoDao {
                 String desc = resultSet.getString("desc_curso");
                 Curso curso = new Curso(nomeCurso, desc, id);
                 cursos.add(curso);
-
             }
             System.out.println("LIST SUCESS");
             connection.close();
