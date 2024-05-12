@@ -18,7 +18,9 @@ body {
 }
 
 .logo {
-    width: 50px;
+    width: 47px;
+    height: 47px;
+}
 }
 
 .profile-tab {
@@ -26,7 +28,8 @@ body {
 }
 
 .profile-icon {
-    width: 50px;
+    width: 70px;
+    height: 70px;
 }
 
 .main-content {
@@ -46,14 +49,18 @@ body {
 }
 
 .menu ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
+    height: 2px;
 }
 
 .menu ul li a {
     text-decoration: none;
     color: #fff;
+    padding: 2px 15px;
+    line-height: 20px;
 }
+
 
 .footer {
     background-color: #8674AA;
@@ -105,4 +112,23 @@ body {
     text-align: center;
     padding: 20px;
 }
+
+/* Estilo para a tabela de cursos */
+
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.course-table th,
+.course-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.course-table th {
+    background-color: #7C6C9A;
+    color: #fff;
 }

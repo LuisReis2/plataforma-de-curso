@@ -53,7 +53,7 @@
             </ul>
         </nav>
 
-        <table border="1">
+        <table border="1" class="course-table">
                             <tr>
                                 <th>ID</th>
                                 <th>Nome do curso</th>
