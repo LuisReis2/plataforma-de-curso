@@ -43,7 +43,7 @@
                             <td>${aula.contentAula}</td>
                             <td>${aula.fkCurso}</td>
                             <td>
-                                <form action="/delete-aula" method="post">
+                                <form action="/deleteAula" method="post">
                                     <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
                                     <button type="submit">Excluir</button>
                                 </form>
