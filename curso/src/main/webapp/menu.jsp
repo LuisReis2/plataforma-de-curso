@@ -26,7 +26,7 @@
             <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
             <li><a href="/ListCursos">Lista de Cursos</a></li>
             <li><a href="createCurso.jsp">Criar Curso</a></li>
-            <li><a href="listAulas.jsp">Lista de Aulas</a></li>
+            <li><a href="/find-aulas">Lista de Aulas</a></li>
             <li><a href="testeAula.jsp">Criar Aulas</a></li>
             <li><a href="createParticipantes.jsp">Criar Participante</a></li>
             <li><a href="/ListParticipantes">Listar Participante</a></li>
@@ -58,12 +58,18 @@
                                 <th>ID</th>
                                 <th>Nome do curso</th>
                                 <th>descricao</th>
+                                <th>acessar</th>
                             </tr>
                           <c:forEach var="curso" items="${sessionScope.meusCursos}">
                                 <tr>
                                     <td>${curso.getIdCurso()}</td>
                                     <td>${curso.getNomeCurso()}</td>
                                     <td>${curso.getDescCurso()}</td>
+                                    <td>
+                                    <form action="/find-aulas" method="get">
+                                        <input id="id" name="id" type=hidden value="${curso.getIdCurso()}">
+                                        <button type="submit">Acessar</button>
+                                    </form>
                                       </tr>
                             </c:forEach>
          </table>
