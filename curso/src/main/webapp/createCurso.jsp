@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
     <title>Criando curso</title>
@@ -18,9 +19,10 @@
      </div>
 
 </header>
-
+   <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <main>
     <h2>Criando Curso</h2>
+
     <form id="cursoForm" action="/create-curso" method="post">
         <label for="idCurso">ID do curso</label>
         <input id="idCurso" name="idCurso" type="text" value="${param.idCurso}" >
@@ -30,7 +32,7 @@
 
         <label for="descCurso">Descrição do curso</label>
         <input id="descCurso" name="descCurso" type="text" value="${param.descCurso}" >
-
+         <input type="hidden" name="update" value="${param.update}">
         <input type="submit" value="CRIAR">
     </form>
     <div id="errorMessages"></div>
@@ -44,6 +46,15 @@
     <div class="profile-header">
         <h2>Meu Perfil</h2>
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
+    </div>
+    <div class="profile-body">
+        <c:if test="${sessionScope.UserLog != null}">
+                <p>Nome: ${sessionScope.UserLog.userName}</p>
+                <p>Email: ${sessionScope.UserLog.userEmail}</p>
+            </c:if>
+             <form action="/logout" method="get">
+                         <button type="submit">Logout</button>
+                        </form>
     </div>
 </div>
 

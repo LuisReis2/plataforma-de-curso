@@ -18,8 +18,9 @@
      </div>
 
 </header>
-
+ <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <main class="main-content">
+
     <div>
         <h1>Lista de Aulas</h1>
         <c:choose>
@@ -67,12 +68,15 @@
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
     </div>
     <div class="profile-body">
-        <c:if test="${User != null}">
-            <p>Nome: ${User.userName}</p>
-            <p>Email: ${User.userEmail}</p>
-        </c:if>
+        <c:if test="${sessionScope.UserLog != null}">
+                <p>Nome: ${sessionScope.UserLog.userName}</p>
+                <p>Email: ${sessionScope.UserLog.userEmail}</p>
+            </c:if>
+             <form action="/logout" method="get">
+                         <button type="submit">Logout</button>
+                        </form>
     </div>
-
+</div>
 <script src="scripts/sidebar.js"></script>
 
 </body>

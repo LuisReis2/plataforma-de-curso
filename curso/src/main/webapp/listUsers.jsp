@@ -17,7 +17,7 @@
      </div>
 
 </header>
-
+ <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <div>
     <h1>Users</h1>
     <table border="1">
@@ -38,7 +38,8 @@
                         <button class="action-button" type="submit">Delete</button>
                     </form>
                     <span> | </span>
-                    <a class="action-link" href="createUser.jsp?email=${user.userEmail}&user-name=${user.userName}&type=${user.userType}&password=${user.userPass}">Update</a>
+                    <a class="action-link" href="createUser.jsp?email=${user.getUserEmail()}&name=${user.getUserName()}&type=${user.getUserType()}&password=${user.getUserPass()}">Update</a>
+
                 </td>
             </tr>
         </c:forEach>
@@ -55,10 +56,13 @@
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
     </div>
     <div class="profile-body">
-        <c:if test="${User != null}">
-            <p>Nome: ${User.userName}</p>
-            <p>Email: ${User.userEmail}</p>
-        </c:if>
+        <c:if test="${sessionScope.UserLog != null}">
+                <p>Nome: ${sessionScope.UserLog.userName}</p>
+                <p>Email: ${sessionScope.UserLog.userEmail}</p>
+            </c:if>
+             <form action="/logout" method="get">
+                         <button type="submit">Logout</button>
+                        </form>
     </div>
 </div>
 

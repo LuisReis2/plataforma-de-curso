@@ -18,7 +18,7 @@ public class createUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 
-        String username = req.getParameter("user-name");
+        String username = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String type = req.getParameter("type");
@@ -33,6 +33,6 @@ public class createUserServlet extends HttpServlet {
             userDao.updateUser(user);
         }
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/find-all-users");
     }
 }

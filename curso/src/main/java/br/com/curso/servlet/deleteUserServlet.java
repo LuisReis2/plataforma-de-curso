@@ -19,7 +19,7 @@ public class deleteUserServlet extends HttpServlet {
 
         new userDao().DeleteUser(id);
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/find-all-users");
     }
 
 }

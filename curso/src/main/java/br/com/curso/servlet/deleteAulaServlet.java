@@ -33,6 +33,6 @@ public class deleteAulaServlet extends HttpServlet {
         req.setAttribute("cursos", cursos);
 //        req.setAttribute("User", userLog);
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/find-aulas");
     }
 }

@@ -19,18 +19,19 @@ public class createCursoServlet extends HttpServlet {
         String nomeCurso = req.getParameter("nomeCurso");
         String descCurso = req.getParameter("descCurso");
         String idCurso = req.getParameter("idCurso");
+        String update = req.getParameter("update");
 
         Curso curso = new Curso(descCurso, nomeCurso,idCurso);
         cursoDao dao = new cursoDao();
 
-        if (idCurso.isBlank()) {
+        if(idCurso.isEmpty()){
             dao.createCurso(curso);
-        } else {
+        }else{
             dao.updateCursoById(curso);
         }
 
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+       resp.sendRedirect("/ListCursos");
 
     }
 }

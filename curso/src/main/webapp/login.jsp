@@ -35,10 +35,12 @@
                     <label for="senha">Senha: </label>
                     <input id="senha" name="senha" placeholder="Senha" type="password">
                 </div>
-                <span>${requestScope.message}<span>
-                <br>
+
                 <button class="btn-login">Login</button>
+
             </form>
+            <br>
+               <span class="error">${requestScope.message}<span>
         </div>
 
     </div>

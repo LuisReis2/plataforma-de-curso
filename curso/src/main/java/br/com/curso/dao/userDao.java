@@ -33,6 +33,7 @@ public class userDao {
 
         } catch (Exception a) {
             System.out.println("INSERT FAILED");
+            System.out.println(a.getMessage());
         }
     }
 
@@ -53,8 +54,9 @@ public class userDao {
             while (resultSet.next()) {
                 String userName = resultSet.getString("user_name");
                 String email = resultSet.getString("user_email");
+                String pass = resultSet.getString("user_password");
                 String type = resultSet.getString("user_type");
-                User user = new User(userName, email, type);
+                User user = new User(userName, email, pass, type);
                 users.add(user);
             }
             System.out.println("Sucess to selected users!");

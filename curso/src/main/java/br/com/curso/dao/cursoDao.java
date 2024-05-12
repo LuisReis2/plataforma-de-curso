@@ -97,5 +97,58 @@ public class cursoDao {
             System.out.println("UPDATE FAILED: " + e.getMessage());
         }
     }
+    public Curso returnCurso(String id){
 
+        String SQL = "SELECT * FROM CURSOS WHERE id_curso = ?";
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                String nomeCurso = resultSet.getString("nome_curso");
+                String descCurso = resultSet.getString("desc_curso");
+                Curso curso = new Curso(nomeCurso, descCurso, id);
+                return curso;
+            }
+            System.out.println("CURSO FOUND!");
+            connection.close();
+        }catch (Exception e){
+            System.out.println("ERRO AO ACHAR CURSO");
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public  List<Curso> cursoPartipados(String idUser){
+        String SQL = "SELECT * FROM PARTICIPANTES WHERE ID_USUARIOS_FK = ?";
+
+        try{
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, idUser);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Curso> cursos = new ArrayList<>();
+
+            while (resultSet.next()){
+                String idCurso = resultSet.getString("id_curso_fk");
+
+                Curso curso = returnCurso(idCurso);
+
+                cursos.add(curso);
+            }
+
+            connection.close();
+            return cursos;
+
+        }catch (Exception e){
+            return Collections.emptyList();
+        }
+    }
 }
