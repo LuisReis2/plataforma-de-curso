@@ -103,5 +103,34 @@ public class aulaDao {
         }
     }
 
+public Aula returnAula(String id){
+        String SQL = "SELECT * FROM AULA WHERE ID_AULA = ?";
+
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+
+                String titulo = resultSet.getString("TITLE_AULA");
+                String url = resultSet.getString("CONTENT_AULA");
+                String idCurso = resultSet.getString("ID_CURSO_FK");
+
+                Aula aula = new Aula(titulo, url, idCurso);
+
+                return aula;
+            }
+            connection.close();
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    return null;
+}
 
 }
