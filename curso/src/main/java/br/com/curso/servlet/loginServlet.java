@@ -32,10 +32,9 @@ public class loginServlet extends HttpServlet {
         if(isValidUser){
             User user = userDao.returnUser(email);
             req.getSession().setAttribute("UserLog", user);
-            List<Curso> cursos = new cursoDao().ListCurso();
-            req.setAttribute("cursos", cursos);
 
-            req.getRequestDispatcher("menu.jsp").forward(req, resp);
+
+            resp.sendRedirect("/meusCursos");
 
         }else{
             req.setAttribute("message", "Credenciais invalidas!");

@@ -42,12 +42,10 @@
             </c:if>
             </ul>
         </nav>
-        <iframe src="/ListCursos" width="680" height="780">
-        </iframe>
     </c:if>
         <nav class="menu">
             <ul>
-             <c:if test="${User.getUserType() eq 'PROFESSOR'}">
+             <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
                 <li><a href="/ListCursos">Lista de Cursos</a></li>
                 <li><a href="createCurso.jsp">Criar Curso</a></li>
                 <li><a href="testeAula.jsp">Criar Aulas</a></li>
@@ -55,6 +53,20 @@
             </ul>
         </nav>
 
+        <table border="1">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome do curso</th>
+                                <th>descricao</th>
+                            </tr>
+                          <c:forEach var="curso" items="${sessionScope.meusCursos}">
+                                <tr>
+                                    <td>${curso.getIdCurso()}</td>
+                                    <td>${curso.getNomeCurso()}</td>
+                                    <td>${curso.getDescCurso()}</td>
+                                      </tr>
+                            </c:forEach>
+         </table>
 </main>
 <footer class="footer">
 
@@ -66,10 +78,15 @@
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
     </div>
     <div class="profile-body">
-    <c:if test="${sessionScope.UserLog != null}">
-        <p>Nome: ${sessionScope.UserLog.userName}</p>
-        <p>Email: ${sessionScope.UserLog.userEmail}</p>
-    </c:if>
+        <c:if test="${sessionScope.UserLog != null}">
+                <p>Nome: ${sessionScope.UserLog.userName}</p>
+                <p>Email: ${sessionScope.UserLog.userEmail}</p>
+            </c:if>
+
+            <form action="/logout" method="get">
+             <button type="submit">Logout</button>
+            </form>
+
     </div>
 
 </div>

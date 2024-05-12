@@ -30,6 +30,6 @@ public class deleteCursoServlet extends HttpServlet {
 
         List<Curso> cursos = cursoDao.ListCurso();
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/ListCursos");
     }
 }

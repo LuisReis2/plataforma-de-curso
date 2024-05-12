@@ -32,7 +32,7 @@ public class CreateParticipantesServlet extends HttpServlet {
         }
 
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/ListParticipantes");
 
     }
 }

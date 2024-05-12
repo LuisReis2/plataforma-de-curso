@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -76,7 +78,7 @@
      </div>
 
 </header>
-
+ <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <form action="/create-aula" id="aula-form" method="post">
     <h2>CADASTRE/ATUALIZE A AULA </h2>
     <label for="idAula">ID AULA:</label>
@@ -102,6 +104,15 @@
     <div class="profile-header">
         <h2>Meu Perfil</h2>
         <button class="close-btn" onclick="toggleProfile()">Fechar</button>
+    </div>
+    <div class="profile-body">
+        <c:if test="${sessionScope.UserLog != null}">
+                <p>Nome: ${sessionScope.UserLog.userName}</p>
+                <p>Email: ${sessionScope.UserLog.userEmail}</p>
+            </c:if>
+             <form action="/logout" method="get">
+                         <button type="submit">Logout</button>
+                        </form>
     </div>
 </div>
 

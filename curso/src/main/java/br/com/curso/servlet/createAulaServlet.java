@@ -32,7 +32,7 @@ public class createAulaServlet extends HttpServlet {
         }
 
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/find-aulas");
 
     }
 }

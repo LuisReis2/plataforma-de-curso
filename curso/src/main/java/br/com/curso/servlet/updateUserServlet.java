@@ -25,6 +25,6 @@ public class updateUserServlet extends HttpServlet {
         userDao userdao = new userDao();
         userdao.updateUser(user);
 
-        resp.sendRedirect(req.getContextPath() + "/Authentication");
+        resp.sendRedirect("/find-all-users");
     }
 }
