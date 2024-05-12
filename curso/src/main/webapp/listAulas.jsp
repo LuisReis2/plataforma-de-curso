@@ -35,6 +35,7 @@
                         <th>CONTEUDO</th>
                         <th>Curso Pertencente</th>
                         <th>ACTION</th>
+                        <th>acessar</th>
                     </tr>
                     <c:forEach var="aula" items="${aula}">
                         <tr>
@@ -48,8 +49,13 @@
                                     <button type="submit">Excluir</button>
                                 </form>
                                 <span> | </span>
-                                <a href="testeAula.jsp?idAula=${aula.idAula}&fkCurso=${aula.fkCurso}">Atualizar</a>
+                                <a href="testeAula.jsp?idAula=${aula.idAula}&fkCurso=${aula.fkCurso}&aulaName=${aula.getTitleAula()}&">Atualizar</a>
                             </td>
+                            <td><form action="viewAula" method="get">
+                             <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
+                             <button type="submit">Acessar</button>
+                            </form>
+                              </td>
                         </tr>
                     </c:forEach>
                 </table>

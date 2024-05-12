@@ -85,10 +85,10 @@
     <input id="idAula" name="idAula" type="text" value="${param.idAula}" >
 
     <label for="aula-name">TITULO DA AULA:</label>
-    <input id="aula-name" name="aula-name" type="text" required>
+    <input id="aulaName" name="aulaName" type="text" required>
 
     <label for="aula-content">CONTEUDO DA AULA:</label>
-    <input id="aula-content" name="aula-content" type="text" required>
+    <input id="aulaContent" name="aulaContent" type="text" required>
 
     <label for="fkCurso">ID DO CURSO ATRELADO:</label>
     <input id="fkCurso" name="fkCurso" type="text" required value="${param.fkCurso}">
