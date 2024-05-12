@@ -25,11 +25,11 @@ public class cursoPorUserServlet extends HttpServlet {
             User usuario = (User) session.getAttribute("UserLog");
 
             List<Curso> cursos = new cursoDao().cursoPartipados(usuario.getUserEmail());
-            for (Curso curso : cursos) {
-                System.out.println("Nome do Curso: " + curso.getNomeCurso());
-                System.out.println("Descrição do Curso: " + curso.getDescCurso());
-                System.out.println("ID do Curso: " + curso.getIdCurso());
-            }
+//            for (Curso curso : cursos) {
+//                System.out.println("Nome do Curso: " + curso.getNomeCurso());
+//                System.out.println("Descrição do Curso: " + curso.getDescCurso());
+//                System.out.println("ID do Curso: " + curso.getIdCurso());
+//            }
 
 
             req.getSession().setAttribute("meusCursos", cursos);

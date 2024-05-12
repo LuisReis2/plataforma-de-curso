@@ -22,13 +22,13 @@ public class listAulaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idCurso = req.getParameter("id");
 
-
+        req.getSession().setAttribute("idCursoAtual", idCurso);
         List<Aula> aulas = new aulaDao().listFkId(idCurso);
 
-        for (Aula aula : aulas) {
-            System.out.println("Nome do Curso: " + aula.getIdAula());
-            System.out.println("oi");
-        }
+//        for (Aula aula : aulas) {
+//            System.out.println("Nome do Curso: " + aula.getIdAula());
+//        }
+
         req.setAttribute("aula", aulas);
         req.getRequestDispatcher("listAulas.jsp").forward(req, resp);
     }
