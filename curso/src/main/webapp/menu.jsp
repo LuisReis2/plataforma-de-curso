@@ -9,13 +9,14 @@
 </head>
 <body>
 <header class="header">
+<link rel="shortcut icon" type="image/x-icon" href="./Images/icon.ico"> <!-- tentei colocar o icone na barra do site mas nao rolou depois vejo by:Leo -->
+
     <div class="logo-container">
         <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-     <div class="profile-tab" onclick="toggleProfile()">
-            <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
-     </div>
-
+    <div class="profile-tab" onclick="toggleProfile()">
+        <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+    </div>
 </header>
 
 <main class="main-content">
@@ -33,51 +34,56 @@
         </c:if>
         </ul>
     </nav>
-    <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
-        <nav class="menu">
-            <ul>
-            <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
-                <li><a href="/ListCursos">TODOS OS CURSOS DO SITE</a></li>
-                <li><a href="parti">Curso Participante</a></li>
+    <nav class="menu">
+        <ul>
+        <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
+
+        </c:if>
+        </ul>
+    </nav>
+    <nav class="menu">
+        <ul>
+        <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+            <li><a href="/ListCursos">Lista de Cursos</a></li>
+            <li><a href="createCurso.jsp">Criar Curso</a></li>
+            <li><a href="testeAula.jsp">Criar Aulas</a></li>
+        </c:if>
+        </ul>
+    </nav>
+
+    <table border="1" class="course-table">
+        <tr>
+            <th>Nome do curso</th>
+            <th>Descrição</th>
+            <th>Acessar</th>
+            <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
+                <th>Actions</th>
             </c:if>
-            </ul>
-        </nav>
-    </c:if>
-        <nav class="menu">
-            <ul>
-             <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
-                <li><a href="/ListCursos">Lista de Cursos</a></li>
-                <li><a href="createCurso.jsp">Criar Curso</a></li>
-                <li><a href="testeAula.jsp">Criar Aulas</a></li>
-               </c:if>
-            </ul>
-        </nav>
-
-        <table border="1" class="course-table">
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome do curso</th>
-                                <th>descricao</th>
-                                <th>acessar</th>
-                            </tr>
-                          <c:forEach var="curso" items="${sessionScope.meusCursos}">
-                                <tr>
-                                    <td>${curso.getIdCurso()}</td>
-                                    <td>${curso.getNomeCurso()}</td>
-                                    <td>${curso.getDescCurso()}</td>
-                                    <td>
-                                    <form action="/find-aulas" method="get">
-                                        <input id="id" name="id" type=hidden value="${curso.getIdCurso()}">
-                                        <button type="submit">Acessar</button>
-                                    </form>
-                                      </tr>
-                            </c:forEach>
-         </table>
+        </tr>
+        <c:forEach var="curso" items="${sessionScope.meusCursos}">
+            <tr>
+                <td>${curso.getNomeCurso()}</td>
+                <td>${curso.getDescCurso()}</td>
+                <td>
+                    <form action="/find-aulas" method="get">
+                        <input id="id" name="id" type="hidden" value="${curso.getIdCurso()}">
+                        <button type="submit">Acessar</button>
+                    </form>
+                </td>
+                <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
+                    <td>
+                        <!-- Delete e update ocultos pro aluno -->
+                        <button>Delete</button>
+                        <button>Update</button>
+                    </td>
+                </c:if>
+            </tr>
+        </c:forEach>
+    </table>
 </main>
+
 <footer class="footer">
-
 </footer>
-
 <div class="profile-sidebar" id="profileSidebar">
     <div class="profile-header">
         <h2>Meu Perfil</h2>
@@ -85,16 +91,13 @@
     </div>
     <div class="profile-body">
         <c:if test="${sessionScope.UserLog != null}">
-                <p>Nome: ${sessionScope.UserLog.userName}</p>
-                <p>Email: ${sessionScope.UserLog.userEmail}</p>
-            </c:if>
-
-            <form action="/logout" method="get">
-             <button type="submit">Logout</button>
-            </form>
-
+            <p>Nome: ${sessionScope.UserLog.userName}</p>
+            <p>Email: ${sessionScope.UserLog.userEmail}</p>
+        </c:if>
+        <form action="/logout" method="get">
+            <button type="submit">Logout</button>
+        </form>
     </div>
-
 </div>
 
 <script src="scripts/sidebar.js"></script>

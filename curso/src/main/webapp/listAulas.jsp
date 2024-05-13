@@ -30,32 +30,27 @@
             <c:otherwise>
                 <table border="1">
                     <tr>
-                        <th>ID</th>
-                        <th>TITULO</th>
-                        <th>CONTEUDO</th>
-                        <th>Curso Pertencente</th>
+                        <th>Titulo da aula</th>
+                        <th>Conteudo</th>
+                        <th>Curso</th>
                         <th>ACTION</th>
-                        <th>acessar</th>
                     </tr>
                     <c:forEach var="aula" items="${aula}">
                         <tr>
-                            <td>${aula.idAula}</td>
                             <td>${aula.titleAula}</td>
                             <td>${aula.contentAula}</td>
                             <td>${aula.fkCurso}</td>
                             <td>
-                                <form action="/deleteAula" method="post">
+                                <form action="/deleteAula" method="post" style="display: none;">
                                     <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
                                     <button type="submit">Excluir</button>
                                 </form>
-                                <span> | </span>
-                                <a href="testeAula.jsp?idAula=${aula.idAula}&fkCurso=${aula.fkCurso}&aulaName=${aula.getTitleAula()}&">Atualizar</a>
+                                <form action="" method="get">
+                                    <input type="hidden" name="idAula" value="${aula.idAula}">
+                                    <input type="hidden" name="fkCurso" value="${aula.fkCurso}">
+                                    <button type="submit">Acessar Aula</button>
+                                </form>
                             </td>
-                            <td><form action="viewAula" method="get">
-                             <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
-                             <button type="submit">Acessar</button>
-                            </form>
-                              </td>
                         </tr>
                     </c:forEach>
                 </table>
