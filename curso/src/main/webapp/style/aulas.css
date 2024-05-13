@@ -1,0 +1,33 @@
+.curso-container {
+    border: none;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.curso-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.curso-container button:hover {
+    background-color: #0056b3;
+}
+
+
+.curso-container h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+
+.curso-container p {
+    margin-bottom: 8px;
+    font-size: 16px;
+}

@@ -1,6 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,7 @@
 </head>
 <body>
 <header class="header">
-<link rel="shortcut icon" type="image/x-icon" href="./Images/icon.ico"> <!-- tentei colocar o icone na barra do site mas nao rolou depois vejo by:Leo -->
-
+    <link rel="shortcut icon" type="image/x-icon" href="./Images/icon.ico">
     <div class="logo-container">
         <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
@@ -20,36 +19,27 @@
 </header>
 
 <main class="main-content">
-    <nav class="menu">
-        <ul>
-        <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
-            <li><a href="/find-all-users">Lista de Usuarios</a></li>
-            <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
-            <li><a href="/ListCursos">Lista de Cursos</a></li>
-            <li><a href="createCurso.jsp">Criar Curso</a></li>
-            <li><a href="/find-aulas">Lista de Aulas</a></li>
-            <li><a href="testeAula.jsp">Criar Aulas</a></li>
-            <li><a href="createParticipantes.jsp">Criar Participante</a></li>
-            <li><a href="/ListParticipantes">Listar Participante</a></li>
-        </c:if>
-        </ul>
-    </nav>
-    <nav class="menu">
-        <ul>
-        <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
-
-        </c:if>
-        </ul>
-    </nav>
-    <nav class="menu">
-        <ul>
-        <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
-            <li><a href="/ListCursos">Lista de Cursos</a></li>
-            <li><a href="createCurso.jsp">Criar Curso</a></li>
-            <li><a href="testeAula.jsp">Criar Aulas</a></li>
-        </c:if>
-        </ul>
-    </nav>
+    <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
+        <nav class="menu">
+            <ul>
+                <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
+                    <li><a href="/find-all-users">Lista de Usuarios</a></li>
+                    <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
+                    <li><a href="/ListCursos">Lista de Cursos</a></li>
+                    <li><a href="createCurso.jsp">Criar Curso</a></li>
+                    <li><a href="/find-aulas">Lista de Aulas</a></li>
+                    <li><a href="testeAula.jsp">Criar Aulas</a></li>
+                    <li><a href="createParticipantes.jsp">Criar Participante</a></li>
+                    <li><a href="/ListParticipantes">Listar Participante</a></li>
+                </c:if>
+                <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+                    <li><a href="/ListCursos">Lista de Cursos</a></li>
+                    <li><a href="createCurso.jsp">Criar Curso</a></li>
+                    <li><a href="testeAula.jsp">Criar Aulas</a></li>
+                </c:if>
+            </ul>
+        </nav>
+    </c:if>
 
     <table border="1" class="course-table">
         <tr>

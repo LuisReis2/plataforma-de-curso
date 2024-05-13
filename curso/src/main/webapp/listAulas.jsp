@@ -4,11 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Aulas</title>
-    <link rel="stylesheet" type="text/css" href="style/listUsers.css">
+    <link rel="stylesheet" type="text/css" href="style/aulas.css">
     <link rel="stylesheet" href="style/menu.css">
+    <style>
+        .curso-container {
+            border: 1px solid black;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-
 <header class="header">
     <div class="logo-container">
         <img src="Images/logo.png" alt="Logo" class="logo">
@@ -16,11 +22,9 @@
      <div class="profile-tab" onclick="toggleProfile()">
             <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
      </div>
-
 </header>
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <main class="main-content">
-
     <div>
         <h1>Lista de Aulas</h1>
         <c:choose>
@@ -28,41 +32,23 @@
                 <p>Não há aulas disponíveis.</p>
             </c:when>
             <c:otherwise>
-                <table border="1">
-                    <tr>
-                        <th>Titulo da aula</th>
-                        <th>Conteudo</th>
-                        <th>Curso</th>
-                        <th>ACTION</th>
-                    </tr>
-                    <c:forEach var="aula" items="${aula}">
-                        <tr>
-                            <td>${aula.titleAula}</td>
-                            <td>${aula.contentAula}</td>
-                            <td>${aula.fkCurso}</td>
-                            <td>
-                                <form action="/deleteAula" method="post" style="display: none;">
-                                    <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
-                                    <button type="submit">Excluir</button>
-                                </form>
-                                <form action="" method="get">
-                                    <input type="hidden" name="idAula" value="${aula.idAula}">
-                                    <input type="hidden" name="fkCurso" value="${aula.fkCurso}">
-                                    <button type="submit">Acessar Aula</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
+                <c:forEach var="aula" items="${aula}">
+                    <div class="curso-container">
+                        <p><strong>TÍTULO:</strong> ${aula.titleAula}</p>
+                        <p><strong>CONTEÚDO:</strong> ${aula.contentAula}</p>
+                        <p><strong>Curso Pertencente:</strong> ${aula.fkCurso}</p>
+                        <form action="viewAula" method="get">
+                            <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
+                            <button type="submit">Acessar</button>
+                        </form>
+                    </div>
+                </c:forEach>
             </c:otherwise>
         </c:choose>
     </div>
 </main>
-
 <footer class="footer">
-
 </footer>
-
 <div class="profile-sidebar" id="profileSidebar">
     <div class="profile-header">
         <h2>Meu Perfil</h2>
@@ -70,15 +56,14 @@
     </div>
     <div class="profile-body">
         <c:if test="${sessionScope.UserLog != null}">
-                <p>Nome: ${sessionScope.UserLog.userName}</p>
-                <p>Email: ${sessionScope.UserLog.userEmail}</p>
-            </c:if>
-             <form action="/logout" method="get">
-                         <button type="submit">Logout</button>
-                        </form>
+            <p>Nome: ${sessionScope.UserLog.userName}</p>
+            <p>Email: ${sessionScope.UserLog.userEmail}</p>
+        </c:if>
+        <form action="/logout" method="get">
+            <button type="submit">Logout</button>
+        </form>
     </div>
 </div>
 <script src="scripts/sidebar.js"></script>
-
 </body>
 </html>
