@@ -33,13 +33,15 @@ public class createAulaServlet extends HttpServlet {
         } else {
             auladao.updateAula(aula);
         }
-        HttpSession session = req.getSession(false);
 
-        if(session != null) {
-            String idCurso = session.getAttribute("idCursoAtual").toString();
-
-            resp.sendRedirect("/find-aulas?id=" + idCurso);
-        }
+        resp.sendRedirect("/find-aulas?id=" + idFk);
+//        HttpSession session = req.getSession(false);
+//
+//        if(session != null) {
+//            String idCurso = session.getAttribute("idCursoAtual").toString();
+//
+//
+//        }
 
 
 
