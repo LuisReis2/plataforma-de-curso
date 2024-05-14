@@ -132,3 +132,18 @@ body {
     background-color: #7C6C9A;
     color: #fff;
 }
+/* CSS para o botão de logout */
+.logout-button {
+    background-color: #8674AA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #6D5A93;
+    color: #FFFFFF;
+}

@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Lista de Cursos</title>
-    <link rel="stylesheet" type="text/css" href="style/listUsers.css">
+
     <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" type="text/css" href="style/Listas.css">
 </head>
 <body>
 
@@ -24,11 +25,11 @@
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <div>
     <h1>Cursos</h1>
-    <table border="1">
+    <table class="list-cursos-table">
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Descricao</th>
+            <th>Descrição</th>
             <th>Actions</th>
         </tr>
         <c:forEach var="curso" items="${cursos}">
@@ -39,19 +40,20 @@
                 <td>
                     <form action="/delete-curso" method="post">
                         <input type="hidden" name="id" value="${curso.getIdCurso()}">
-                        <button type="submit">DELETE</button>
-                        <span> | </span>
-                        <a href="createCurso.jsp?idCurso=${curso.getIdCurso()}&nomeCurso=${curso.getNomeCurso()}&descCurso=${curso.getDescCurso()}">Update</a>
+                        <button class="action-button" type="submit">DELETE</button>
                     </form>
-                    <form action="/find-aulas" method="post">
+                    <form action="createCurso.jsp" method="get">
                         <input type="hidden" name="idCurso" value="${curso.getIdCurso()}">
-                        <button type="submit">LISTA</button>
+                        <input type="hidden" name="nomeCurso" value="${curso.getNomeCurso()}">
+                        <input type="hidden" name="descCurso" value="${curso.getDescCurso()}">
+                        <button class="action-button" type="submit">UPDATE</button>
                     </form>
                 </td>
             </tr>
         </c:forEach>
     </table>
 </div>
+
 
 <footer class="footer">
 

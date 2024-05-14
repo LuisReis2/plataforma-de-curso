@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="style/listUsers.css">
+    <link rel="stylesheet" type="text/css" href="style/Listas.css">
     <link rel="stylesheet" href="style/menu.css">
 </head>
 <body>
@@ -12,32 +12,35 @@
     <div class="logo-container">
         <img src="Images/logo.png" alt="Logo" class="logo">
     </div>
-     <div class="profile-tab" onclick="toggleProfile()">
-            <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
-     </div>
-
+    <div class="profile-tab" onclick="toggleProfile()">
+        <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+    </div>
 </header>
- <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+<a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <div>
     <h1>PARTICIPANTES</h1>
     <table border="1">
         <tr>
-            <th>ID PARTICIPANTES</th>
+            <th>ID Participante</th>
             <th>ID DE USAURIO DO PARTICIPANTE</th>
             <th>ID DO CURSO CUJO USAURIO PERTENCE</th>
             <th>Actions</th>
         </tr>
-        <c:forEach var="participantes" items="${participantes}">
+        <c:forEach var="participante" items="${participantes}">
             <tr>
-                <td>${participantes.idParticipante}</td>
-                <td>${participantes.idUserFk}</td>
-                <td>${participantes.idCursoFk}</td>
+                <td>${participante.idParticipante}</td>
+                <td>${participante.idUserFk}</td>
+                <td>${participante.idCursoFk}</td>
                 <td>
-                  <form action="/delete-participante" method="post">
-                   <input type="hidden" id="idParticipante" name = "idParticipante" value="${participantes.idParticipante}">
-                   <button type="submit">DELETE</button>
-                    <span> | </span>
-                    <a href="createParticipantes.jsp?idParticipante=${participantes.idParticipante}&idUserFk=${participantes.idUserFk}&idCursoFk=${participantes.idCursoFk}">Update</a>
+                    <form action="/delete-participante" method="post">
+                        <input type="hidden" id="idParticipante" name="idParticipante" value="${participante.idParticipante}">
+                        <button type="submit">Excluir</button>
+                    </form>
+                    <form action="createParticipantes.jsp" method="get">
+                        <input type="hidden" name="idParticipante" value="${participante.idParticipante}">
+                        <input type="hidden" name="idUserFk" value="${participante.idUserFk}">
+                        <input type="hidden" name="idCursoFk" value="${participante.idCursoFk}">
+                        <button type="submit" class="action-button update-button">Atualizar</button>
                     </form>
                 </td>
             </tr>
@@ -46,7 +49,6 @@
 </div>
 
 <footer class="footer">
-    <!-- Conteúdo do rodapé, se houver -->
 </footer>
 
 <div class="profile-sidebar" id="profileSidebar">
@@ -56,12 +58,12 @@
     </div>
     <div class="profile-body">
         <c:if test="${sessionScope.UserLog != null}">
-                <p>Nome: ${sessionScope.UserLog.userName}</p>
-                <p>Email: ${sessionScope.UserLog.userEmail}</p>
-            </c:if>
-             <form action="/logout" method="get">
-                         <button type="submit">Logout</button>
-                        </form>
+            <p>Nome: ${sessionScope.UserLog.userName}</p>
+            <p>Email: ${sessionScope.UserLog.userEmail}</p>
+        </c:if>
+        <form action="/logout" method="get">
+            <button type="submit">Logout</button>
+        </form>
     </div>
 </div>
 

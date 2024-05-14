@@ -27,7 +27,7 @@
                     <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
                     <li><a href="/ListCursos">Lista de Cursos</a></li>
                     <li><a href="createCurso.jsp">Criar Curso</a></li>
-                    <li><a href="/find-aulas">Lista de Aulas</a></li>
+
                     <li><a href="testeAula.jsp">Criar Aulas</a></li>
                     <li><a href="createParticipantes.jsp">Criar Participante</a></li>
                     <li><a href="/ListParticipantes">Listar Participante</a></li>
@@ -87,6 +87,7 @@
         <form action="/logout" method="get">
             <button type="submit">Logout</button>
         </form>
+
     </div>
 </div>
 
