@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.Locale" %>
+<%
+    Locale.setDefault(new Locale("pt", "BR"));
+%>
+
 <html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>

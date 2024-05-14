@@ -24,4 +24,8 @@
         <welcome-file>home.html</welcome-file>
     </welcome-file-list>
 
+    <locale-config>
+        <default-locale>pt_BR</default-locale>
+    </locale-config>
+
 </web-app>

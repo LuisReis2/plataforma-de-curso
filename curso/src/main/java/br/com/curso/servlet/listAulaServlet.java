@@ -19,7 +19,7 @@ import java.util.List;
 public class listAulaServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idCurso = req.getParameter("id");
 
         req.getSession().setAttribute("idCursoAtual", idCurso);
@@ -29,6 +29,15 @@ public class listAulaServlet extends HttpServlet {
 //            System.out.println("Nome do Curso: " + aula.getIdAula());
 //        }
 
+        req.setAttribute("aula", aulas);
+        req.getRequestDispatcher("listAulas.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idCurso = req.getParameter("id");
+        req.getSession().setAttribute("idCursoAtual", idCurso);
+        List<Aula> aulas = new aulaDao().listFkId(idCurso);
         req.setAttribute("aula", aulas);
         req.getRequestDispatcher("listAulas.jsp").forward(req, resp);
     }
