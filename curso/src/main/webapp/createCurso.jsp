@@ -24,9 +24,11 @@
 
 </header>
    <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
-<main>
-    <h2>Criando Curso</h2>
 
+<main>
+
+<c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+ <h2>Criando Curso</h2>
     <form id="cursoForm" action="/create-curso" method="post">
         <label for="idCurso">ID do curso</label>
         <input id="idCurso" name="idCurso" type="text" value="${param.idCurso}" >
@@ -39,6 +41,10 @@
          <input type="hidden" name="update" value="${param.update}">
         <input type="submit" value="CRIAR">
     </form>
+        </c:if>
+        <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
+            <h2>VOCÊ NÃO TEM PERMISSÃO A ISSO </h1>
+         </c:if>
     <div id="errorMessages"></div>
 </main>
 

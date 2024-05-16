@@ -21,9 +21,26 @@
             <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
      </div>
 </header>
- <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+ 
 <main class="main-content">
+    <nav class="menu">
+        <ul>
+            <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+                <li><a href="testeAula.jsp">Criar Aulas</a></li>
+                <li><a href="createParticipantes.jsp">Criar Participante</a></li>
+                <li><a href="/ListParticipantes">Listar Participante</a></li>
+            </c:if>
+            <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+                <li><a href="/ListCursos">Lista de Cursos</a></li>
+                <li><a href="createCurso.jsp">Criar Curso</a></li>
+                 <li><a href="createParticipantes.jsp">Criar Participante</a></li>
+                <li><a href="testeAula.jsp">Criar Aulas</a></li>
+            </c:if>
+        </ul>
+        
+    </nav>
     <div>
+        <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
         <h1>Lista de Aulas</h1>
         <c:choose>
             <c:when test="${empty aula}">
@@ -35,10 +52,29 @@
                         <p><strong>TÍTULO:</strong> ${aula.titleAula}</p>
                         <p><strong>CONTEÚDO:</strong> ${aula.contentAula}</p>
                         <p><strong>Curso Pertencente:</strong> ${aula.fkCurso}</p>
-                        <form action="viewAula" method="get">
-                            <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
-                            <button type="submit">Acessar</button>
-                        </form>
+                        
+                        <div class="divfoda">
+                            <form action="viewAula" method="get">
+                                <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
+                                <button class="action-button" type="submit">Acessar</button>
+                            </form>
+                        </div>
+                        
+                        <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+                           <div class="divfoda">
+                            <form action="/deleteAula" method="post">
+                                <input type="hidden" name="id" value="${aula.getIdAula()}">
+                                <button class="action-button" type="submit">DELETE</button>
+                            </form>
+                           </div>
+                            <div class="divfoda">
+                                <form action="testeAula.jsp" method="get">
+                                    <input type="hidden" name="idAula" value="${aula.idAula}">
+                                    <input type="hidden" name="fkCurso" value="${aula.fkCurso}">
+                                    <button class="action-button" type="submit">UPDATE</button>
+                                </form>
+                            </div>
+                        </c:if>
                     </div>
                 </c:forEach>
             </c:otherwise>

@@ -26,6 +26,7 @@
 </header>
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <main>
+<c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
     <h2>ADICIONANDO PARTICIPANTES AO CURSO</h2>
     <form id="cursoForm" action="/create-participantes" method="post">
         <label for="idParticipante">ID PARTICIPANTE</label>
@@ -39,7 +40,12 @@
 
         <input type="submit" value="CRIAR">
     </form>
+           </c:if>
     <div id="errorMessages"></div>
+
+      <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
+                <h2>VOCÊ NÃO TEM PERMISSÃO A ISSO </h1>
+             </c:if>
 </main>
 
 <footer class="footer">
