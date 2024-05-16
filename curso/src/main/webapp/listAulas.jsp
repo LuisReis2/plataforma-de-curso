@@ -49,6 +49,7 @@
             <c:otherwise>
                 <c:forEach var="aula" items="${aula}">
                     <div class="curso-container">
+                        <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
                         <p><strong>TÍTULO:</strong> ${aula.titleAula}</p>
                         <p><strong>CONTEÚDO:</strong> ${aula.contentAula}</p>
                         <p><strong>Curso Pertencente:</strong> ${aula.fkCurso}</p>
@@ -63,7 +64,7 @@
                         <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
                            <div class="divfoda">
                             <form action="/deleteAula" method="post">
-                                <input type="hidden" name="id" value="${aula.getIdAula()}">
+                                <input type="hidden" name="idAula" value="${aula.idAula}">
                                 <button class="action-button" type="submit">DELETE</button>
                             </form>
                            </div>
