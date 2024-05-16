@@ -147,3 +147,16 @@ body {
     background-color: #6D5A93;
     color: #FFFFFF;
 }
+.action-button {
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #8674AA; /* Cor roxa mais clara */
+    background-color: #8674AA; /* Cor roxa mais clara */
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Adicionando transição */
+    margin: 5px
+}
+

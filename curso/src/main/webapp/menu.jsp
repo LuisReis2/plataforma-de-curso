@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="style/menu.css">
+
 </head>
 <body>
 <header class="header">
@@ -52,7 +53,7 @@
             <th>Nome do curso</th>
             <th>Descrição</th>
             <th>Acessar</th>
-            <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
+            <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
                 <th>Actions</th>
             </c:if>
         </tr>
@@ -63,10 +64,10 @@
                 <td>
                     <form action="/find-aulas" method="get">
                         <input id="id" name="id" type="hidden" value="${curso.getIdCurso()}">
-                        <button type="submit">Acessar</button>
+                        <button class="action-button type="submit">Acessar</button>
                     </form>
                 </td>
-                <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
+                <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
                     <td>
                         <!-- Delete e update ocultos pro aluno -->
                         <button>Delete</button>

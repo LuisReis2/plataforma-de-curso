@@ -73,7 +73,7 @@ public class cursoDao {
             System.out.println("Curso deletado, id: " + cursoId);
             connection.close();
         } catch (Exception a) {
-            System.out.println("DELET FAILED");
+            System.out.println(a.getMessage());
         }
 
 

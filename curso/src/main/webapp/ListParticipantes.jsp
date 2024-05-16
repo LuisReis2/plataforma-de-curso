@@ -39,7 +39,7 @@
                 <td>
                     <form action="/delete-participante" method="post">
                         <input type="hidden" id="idParticipante" name="idParticipante" value="${participante.idParticipante}">
-                        <button type="submit">Excluir</button>
+                        <button class="action-button update-button" type="submit">Excluir</button>
                     </form>
                     <form action="createParticipantes.jsp" method="get">
                         <input type="hidden" name="idParticipante" value="${participante.idParticipante}">
