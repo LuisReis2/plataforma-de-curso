@@ -47,11 +47,15 @@
                         <input type="hidden" name="id" value="${curso.getIdCurso()}">
                         <button class="action-button" type="submit">DELETE</button>
                     </form>
-                    <form action="createCurso.jsp" method="post">
+                    <form action="createCurso.jsp" method="get">
                         <input type="hidden" name="idCurso" value="${curso.getIdCurso()}">
                         <input type="hidden" name="nomeCurso" value="${curso.getNomeCurso()}">
                         <input type="hidden" name="descCurso" value="${curso.getDescCurso()}">
                         <button class="action-button" type="submit">UPDATE</button>
+                    </form>
+                    <form action="/find-aulas" method="get">
+                        <input type="hidden" name="id" value="${curso.getIdCurso()}">
+                        <button class="action-button" type="submit">ACESSAR AULAS</button>
                     </form>
                 </td>
             </tr>

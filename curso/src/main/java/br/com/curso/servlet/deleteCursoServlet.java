@@ -22,13 +22,10 @@ public class deleteCursoServlet extends HttpServlet {
 
         String id = req.getParameter("id");
         cursoDao cursoDao = new cursoDao();
-        userDao userDao = new userDao();
+
 
         cursoDao.deleteCarById(id);
 
-//        User userLog = userDao.userLogado();
-
-        List<Curso> cursos = cursoDao.ListCurso();
 
         resp.sendRedirect("/ListCursos");
     }

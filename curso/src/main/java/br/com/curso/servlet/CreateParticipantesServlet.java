@@ -35,4 +35,25 @@ public class CreateParticipantesServlet extends HttpServlet {
         resp.sendRedirect("/ListParticipantes");
 
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id_fk_user,  idFk_curso, id;
+        id = req.getParameter("idParticipante");
+        id_fk_user = req.getParameter("idUserFk");
+        idFk_curso = req.getParameter("idCursoFk");
+
+        ParticipantesDao part = new ParticipantesDao();
+
+        Participantes participantes = new Participantes(id,id_fk_user,idFk_curso);
+        if(id.isBlank()){
+            part.createParticipantes(participantes);
+
+        }else {
+            part.updateParticipantes(participantes);
+        }
+
+
+        resp.sendRedirect("/ListParticipantes");
+    }
 }

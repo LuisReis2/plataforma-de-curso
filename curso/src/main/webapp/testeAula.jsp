@@ -85,6 +85,7 @@
 
 </header>
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+ <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
 <form action="/create-aula" id="aula-form" method="post">
     <h2>CADASTRE/ATUALIZE A AULA </h2>
     <label for="idAula">ID AULA:</label>
@@ -101,7 +102,12 @@
 
     <input type="submit" value="Cadastrar">
 </form>
+       </c:if>
 
+
+  <c:if test="${sessionScope.UserLog.getUserType() eq 'STUDENT'}">
+            <h2>VOCÊ NÃO TEM PERMISSÃO A ISSO </h1>
+         </c:if>
 <footer class="footer">
     <!-- Conteúdo do rodapé, se houver -->
 </footer>

@@ -12,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="style/menu.css">
-
 </head>
 <body>
 <header class="header">
@@ -42,6 +41,7 @@
                 <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
                     <li><a href="/ListCursos">Lista de Cursos</a></li>
                     <li><a href="createCurso.jsp">Criar Curso</a></li>
+                     <li><a href="createParticipantes.jsp">Criar Participante</a></li>
                     <li><a href="testeAula.jsp">Criar Aulas</a></li>
                 </c:if>
             </ul>
@@ -53,7 +53,7 @@
             <th>Nome do curso</th>
             <th>Descrição</th>
             <th>Acessar</th>
-            <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
+            <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
                 <th>Actions</th>
             </c:if>
         </tr>
@@ -64,10 +64,10 @@
                 <td>
                     <form action="/find-aulas" method="get">
                         <input id="id" name="id" type="hidden" value="${curso.getIdCurso()}">
-                        <button class="action-button type="submit">Acessar</button>
+                        <button type="submit">Acessar</button>
                     </form>
                 </td>
-                <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM'}">
+                <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
                     <td>
                         <!-- Delete e update ocultos pro aluno -->
                         <button>Delete</button>
