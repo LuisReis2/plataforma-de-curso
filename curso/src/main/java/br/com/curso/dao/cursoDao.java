@@ -62,7 +62,7 @@ public class cursoDao {
     }
 
     public void deleteCarById(String cursoId) {
-        String SQL = "DELETE CURSOS WHERE ID_CURSO = ?";
+        String SQL = "DELETE FROM CURSOS WHERE ID_CURSO = ?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -70,10 +70,10 @@ public class cursoDao {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             preparedStatement.setString(1, cursoId);
             preparedStatement.execute();
-            System.out.println("Curso deletado, id: " + cursoId);
+
             connection.close();
         } catch (Exception a) {
-            System.out.println("DELET FAILED");
+            System.out.println("erro: "+a.getMessage());
         }
 
 
