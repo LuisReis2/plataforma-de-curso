@@ -42,6 +42,7 @@ th {
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Adicionando transição */
+    margin: 5px
 }
 
 .action-button:hover {

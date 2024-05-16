@@ -47,7 +47,7 @@
                         <input type="hidden" name="id" value="${curso.getIdCurso()}">
                         <button class="action-button" type="submit">DELETE</button>
                     </form>
-                    <form action="createCurso.jsp" method="get">
+                    <form action="createCurso.jsp" method="post">
                         <input type="hidden" name="idCurso" value="${curso.getIdCurso()}">
                         <input type="hidden" name="nomeCurso" value="${curso.getNomeCurso()}">
                         <input type="hidden" name="descCurso" value="${curso.getDescCurso()}">
