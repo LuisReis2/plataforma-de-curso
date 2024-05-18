@@ -27,15 +27,15 @@
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
 <main>
 <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
-    <h2>ADICIONANDO PARTICIPANTES AO CURSO</h2>
+    <h2>Adicionar participante ao curso</h2>
     <form id="cursoForm" action="/create-participantes" method="post">
-        <label for="idParticipante">ID PARTICIPANTE</label>
+        <label for="idParticipante">ID do Participante</label>
         <input id="idParticipante" name="idParticipante" type="text" value="${param.idParticipante}" >
 
-        <label for="idUserFk">ID DO USUARIO</label>
+        <label for="idUserFk">ID do usuário</label>
         <input id="idUserFk" name="idUserFk" type="text" value="${param.idUserFk}" >
 
-        <label for="idCursoFk">ID DO CURSO</label>
+        <label for="idCursoFk">ID do curso</label>
         <input id="idCursoFk" name="idCursoFk" type="text" value="${param.idCursoFk}" >
 
         <input type="submit" value="CRIAR">
@@ -49,7 +49,6 @@
 </main>
 
 <footer class="footer">
-    <!-- Conteúdo do rodapé, se houver -->
 </footer>
 
 <div class="profile-sidebar" id="profileSidebar">
@@ -63,8 +62,8 @@
                 <p>Email: ${sessionScope.UserLog.userEmail}</p>
             </c:if>
              <form action="/logout" method="get">
-                         <button type="submit">Logout</button>
-                        </form>
+                         <button class="action-button logout-button" type="submit">Logout</button>
+                     </form>
     </div>
 </div>
 

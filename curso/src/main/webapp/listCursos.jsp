@@ -13,7 +13,7 @@
     <title>Lista de Cursos</title>
 
     <link rel="stylesheet" href="style/menu.css">
-    <link rel="stylesheet" type="text/css" href="style/Listas.css">
+    <link rel="stylesheet" type="text/css" href="style/aulas.css">
 </head>
 <body>
 
@@ -28,44 +28,31 @@
 
 </header>
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
-<div>
-    <h1>Cursos</h1>
-    <table class="list-cursos-table">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Actions</th>
-        </tr>
+<div class="title-container">
+    <h1>Lista de Cursos</h1>
+</div>
+<div class="main-content">
+    <div class="curso-container">
         <c:forEach var="curso" items="${cursos}">
-            <tr>
-                <td>${curso.getIdCurso()}</td>
-                <td>${curso.getNomeCurso()}</td>
-                <td>${curso.getDescCurso()}</td>
-                <td>
-                    <form action="/delete-curso" method="post">
-                        <input type="hidden" name="id" value="${curso.getIdCurso()}">
-                        <button class="action-button" type="submit">DELETE</button>
-                    </form>
-                    <form action="createCurso.jsp" method="get">
-                        <input type="hidden" name="idCurso" value="${curso.getIdCurso()}">
-                        <input type="hidden" name="nomeCurso" value="${curso.getNomeCurso()}">
-                        <input type="hidden" name="descCurso" value="${curso.getDescCurso()}">
-                        <button class="action-button" type="submit">UPDATE</button>
-                    </form>
-                    <form action="/find-aulas" method="get">
-                        <input type="hidden" name="id" value="${curso.getIdCurso()}">
-                        <button class="action-button" type="submit">ACESSAR AULAS</button>
-                    </form>
-                </td>
-            </tr>
+            <input type="hidden" id="idCurso" name="idCurso" value="${curso.getIdCurso()}">
+            <p><strong>Nome:</strong> ${curso.getNomeCurso()}</p>
+            <p><strong>Descrição:</strong> ${curso.getDescCurso()}</p>
+
+            <div class="divfoda">
+                <form action="/delete-curso" method="post">
+                    <input type="hidden" name="id" value="${curso.getIdCurso()}">
+                    <button class="action-button" type="submit">Deletar</button>
+                </form>
+                <form action="/find-aulas" method="get">
+                    <input type="hidden" name="id" value="${curso.getIdCurso()}">
+                    <button class="action-button" type="submit">Acessar aulas</button>
+                </form>
+            </div>
         </c:forEach>
-    </table>
+    </div>
 </div>
 
-
 <footer class="footer">
-
 </footer>
 
 <div class="profile-sidebar" id="profileSidebar">
@@ -75,12 +62,12 @@
     </div>
     <div class="profile-body">
         <c:if test="${sessionScope.UserLog != null}">
-                <p>Nome: ${sessionScope.UserLog.userName}</p>
-                <p>Email: ${sessionScope.UserLog.userEmail}</p>
-            </c:if>
-             <form action="/logout" method="get">
-                         <button type="submit">Logout</button>
-                        </form>
+            <p>Nome: ${sessionScope.UserLog.userName}</p>
+            <p>Email: ${sessionScope.UserLog.userEmail}</p>
+        </c:if>
+        <form action="/logout" method="get">
+                    <button class="action-button logout-button" type="submit">Logout</button>
+                </form>
     </div>
 </div>
 

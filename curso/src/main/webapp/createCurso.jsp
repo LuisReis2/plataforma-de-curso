@@ -49,7 +49,6 @@
 </main>
 
 <footer class="footer">
-    <!-- Conteúdo do rodapé, se houver -->
 </footer>
 
 <div class="profile-sidebar" id="profileSidebar">
@@ -63,8 +62,8 @@
                 <p>Email: ${sessionScope.UserLog.userEmail}</p>
             </c:if>
              <form action="/logout" method="get">
-                         <button type="submit">Logout</button>
-                        </form>
+                         <button class="action-button logout-button" type="submit">Logout</button>
+                     </form>
     </div>
 </div>
 

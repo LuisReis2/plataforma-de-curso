@@ -21,6 +21,7 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin: 5px;
 }
 
 .curso-container button:hover {
@@ -39,10 +40,17 @@
 }
 
 .divfoda{
-    display: flex; 
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     margin: 10px;
+    margin: 5px;
+}
+.title-container h1 {
+    text-align: center;
+}
+.curso-container .action-button {
+    margin: 5px;
 }

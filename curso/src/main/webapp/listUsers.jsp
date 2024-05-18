@@ -1,9 +1,5 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.Locale" %>
-<%
-    Locale.setDefault(new Locale("pt", "BR"));
-%>
 
 <html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -11,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style/menu.css">
-    <link rel="stylesheet" type="text/css" href="style/Listas.css">
+    <link rel="stylesheet" type="text/css" href="style/listas.css">
 </head>
 <body>
 <header class="header">
@@ -39,7 +35,7 @@
                     <td>${user.userEmail}</td>
                     <td>${user.userName}</td>
                     <td>${user.userType}</td>
-                    <td>
+                    <td class="action-buttons">
                         <form action="/delete" method="post">
                             <input type="hidden" id="userEmail" name="userEmail" value="${user.userEmail}">
                             <button class="action-button" type="submit">Delete</button>
@@ -60,7 +56,6 @@
 
 <footer class="footer">
 </footer>
-
 <div class="profile-sidebar" id="profileSidebar">
     <div class="profile-header">
         <h2>Meu Perfil</h2>
@@ -72,7 +67,7 @@
             <p>Email: ${sessionScope.UserLog.userEmail}</p>
         </c:if>
         <form action="/logout" method="get">
-            <button type="submit">Logout</button>
+            <button class="action-button logout-button" type="submit">Logout</button>
         </form>
     </div>
 </div>

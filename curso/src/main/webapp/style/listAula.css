@@ -49,3 +49,7 @@ th {
 .action-link:hover {
     color: #6D5A93;
 }
+.title-container h1 {
+    text-align: center;
+}
+

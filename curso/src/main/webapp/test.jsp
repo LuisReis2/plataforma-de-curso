@@ -41,7 +41,7 @@
     </table>
   </div>
   <footer class="footer">
-      <!-- Conteúdo do rodapé, se houver -->
+
   </footer>
 
   <div class="profile-sidebar" id="profileSidebar">

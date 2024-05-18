@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #E4D6FF;
+    color: rgb(211, 255, 253);
+    height: 2000px;
+}
+
+h1 {
+    text-align: center;
+    color: #402D65;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 2px solid #6D5A93;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #6D5A93;
+    text-align: center;
+    color: #402D65;
+}
+
+th {
+    background-color: #6D5A93;
+    color: #FFFFFF;
+}
+
+        .table-container {
+            text-align: center;
+        }
+
+        .table-container .action-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table-container button {
+            background-color: #7b25c2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+
+        .table-container button:hover {
+            background-color: #783adb;
+        }
+        .table-container {
+                    text-align: center;
+                }
+
+                .table-container .action-buttons {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .table-container button {
+                    background-color: #7b25c2;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: background-color 0.3s;
+                    margin: 5px;
+                }
+
+                .table-container button:hover {
+                    background-color: #783adb;
+                }
+
+
+
+

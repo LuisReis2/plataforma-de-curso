@@ -113,8 +113,6 @@ body {
     padding: 20px;
 }
 
-/* Estilo para a tabela de cursos */
-
 .course-table {
     width: 100%;
     border-collapse: collapse;
@@ -132,7 +130,6 @@ body {
     background-color: #7C6C9A;
     color: #fff;
 }
-/* CSS para o botão de logout */
 .logout-button {
     background-color: #8674AA;
     color: white;
@@ -147,3 +144,8 @@ body {
     background-color: #6D5A93;
     color: #FFFFFF;
 }
+.logout-button {
+    background-color: white;
+    color: #7b25c2;
+}
+

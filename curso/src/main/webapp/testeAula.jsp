@@ -87,17 +87,17 @@
  <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
  <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
 <form action="/create-aula" id="aula-form" method="post">
-    <h2>CADASTRE/ATUALIZE A AULA </h2>
-    <label for="idAula">ID AULA:</label>
+    <h2>Cadastrar/Atualizar aula </h2>
+    <label for="idAula">ID Aula:</label>
     <input id="idAula" name="idAula" type="text" value="${param.idAula}" >
 
-    <label for="aula-name">TITULO DA AULA:</label>
+    <label for="aula-name">Título da aula:</label>
     <input id="aulaName" name="aulaName" type="text" required>
 
-    <label for="aula-content">CONTEUDO DA AULA:</label>
+    <label for="aula-content">Conteúdo da aula:</label>
     <input id="aulaContent" name="aulaContent" type="text" required>
 
-    <label for="fkCurso">ID DO CURSO ATRELADO:</label>
+    <label for="fkCurso">ID do curso:</label>
     <input id="fkCurso" name="fkCurso" type="text" required value="${param.fkCurso}">
 
     <input type="submit" value="Cadastrar">
@@ -109,7 +109,7 @@
             <h2>VOCÊ NÃO TEM PERMISSÃO A ISSO </h1>
          </c:if>
 <footer class="footer">
-    <!-- Conteúdo do rodapé, se houver -->
+
 </footer>
 
 <div class="profile-sidebar" id="profileSidebar">
@@ -123,8 +123,8 @@
                 <p>Email: ${sessionScope.UserLog.userEmail}</p>
             </c:if>
              <form action="/logout" method="get">
-                         <button type="submit">Logout</button>
-                        </form>
+                         <button class="action-button logout-button" type="submit">Logout</button>
+                     </form>
     </div>
 </div>
 

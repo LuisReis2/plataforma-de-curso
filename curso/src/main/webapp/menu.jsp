@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" type="text/css" href="style/aulas.css">
 </head>
 <body>
 <header class="header">
@@ -48,35 +49,23 @@
         </nav>
     </c:if>
 
-    <table border="1" class="course-table">
-        <tr>
-            <th>Nome do curso</th>
-            <th>Descrição</th>
-            <th>Acessar</th>
-            <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
-                <th>Actions</th>
-            </c:if>
-        </tr>
-        <c:forEach var="curso" items="${sessionScope.meusCursos}">
-            <tr>
-                <td>${curso.getNomeCurso()}</td>
-                <td>${curso.getDescCurso()}</td>
-                <td>
+    <c:if test="${not empty sessionScope.meusCursos}">
+        <div class="main-content-header">
+            <h1>Lista de Cursos</h1>
+        </div>
+        <div class="curso-container">
+            <c:forEach var="curso" items="${sessionScope.meusCursos}">
+                <div class="curso">
+                    <h2>${curso.getNomeCurso()}</h2>
+                    <p>${curso.getDescCurso()}</p>
                     <form action="/find-aulas" method="get">
                         <input id="id" name="id" type="hidden" value="${curso.getIdCurso()}">
-                        <button type="submit">Acessar</button>
+                        <button class="action-button" type="submit">Acessar</button>
                     </form>
-                </td>
-                <c:if test="${sessionScope.UserLog.getUserType() ne 'STUDENT'}">
-                    <td>
-                        <!-- Delete e update ocultos pro aluno -->
-                        <button>Delete</button>
-                        <button>Update</button>
-                    </td>
-                </c:if>
-            </tr>
-        </c:forEach>
-    </table>
+                </div>
+            </c:forEach>
+        </div>
+    </c:if>
 </main>
 
 <footer class="footer">
@@ -92,9 +81,8 @@
             <p>Email: ${sessionScope.UserLog.userEmail}</p>
         </c:if>
         <form action="/logout" method="get">
-            <button type="submit">Logout</button>
+            <button class="action-button logout-button" type="submit">Logout</button>
         </form>
-
     </div>
 </div>
 
