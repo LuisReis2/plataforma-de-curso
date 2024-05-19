@@ -34,16 +34,10 @@
                     <li><a href="createUser.jsp">Cadastrar Usuario</a></li>
                     <li><a href="/ListCursos">Lista de Cursos</a></li>
                     <li><a href="createCurso.jsp">Criar Curso</a></li>
-
-                    <li><a href="testeAula.jsp">Criar Aulas</a></li>
-                    <li><a href="createParticipantes.jsp">Criar Participante</a></li>
-                    <li><a href="/ListParticipantes">Listar Participante</a></li>
                 </c:if>
                 <c:if test="${sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
                     <li><a href="/ListCursos">Lista de Cursos</a></li>
                     <li><a href="createCurso.jsp">Criar Curso</a></li>
-                     <li><a href="createParticipantes.jsp">Criar Participante</a></li>
-                    <li><a href="testeAula.jsp">Criar Aulas</a></li>
                 </c:if>
             </ul>
         </nav>

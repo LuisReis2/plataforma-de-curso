@@ -27,7 +27,7 @@
      </div>
 
 </header>
- <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+ <a href="menu.jsp"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
 <div class="title-container">
     <h1>Lista de Cursos</h1>
 </div>
@@ -43,6 +43,7 @@
                     <input type="hidden" name="id" value="${curso.getIdCurso()}">
                     <button class="action-button" type="submit">Deletar</button>
                 </form>
+                <a href="createCurso.jsp?idCurso=${curso.getIdCurso()}&nomeCurso=${curso.getNomeCurso()}&descCurso=${curso.getDescCurso()}">Atualizar</a>
                 <form action="/find-aulas" method="get">
                     <input type="hidden" name="id" value="${curso.getIdCurso()}">
                     <button class="action-button" type="submit">Acessar aulas</button>

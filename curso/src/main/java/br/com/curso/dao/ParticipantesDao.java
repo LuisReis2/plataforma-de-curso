@@ -84,4 +84,28 @@ public class ParticipantesDao {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    public List<Participantes> ListParticipantesCurso(String idCurso){
+        String SQL = "SELECT * FROM PARTICIPANTES WHERE ID_CURSO_FK = ? ";
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, idCurso);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Participantes> Participantes = new ArrayList<>();
+            while (resultSet.next()) {
+                String idParticipantes = resultSet.getString("ID_PARTICIPANTES");
+                String idUsuariosFk = resultSet.getString("ID_USUARIOS_FK");
+                String idCursoFk = resultSet.getString("ID_CURSO_FK");
+                Participantes participante = new Participantes(idParticipantes,idUsuariosFk , idCursoFk);
+                Participantes.add(participante);
+            }
+            connection.close();
+            System.out.println("consegue pegar tudo");
+            return Participantes;
+        }catch (Exception e){
+            System.out.println("erro na listagem de participantes");
+            return Collections.emptyList();
+        }
+    }
 }
