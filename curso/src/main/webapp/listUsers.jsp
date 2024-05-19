@@ -18,7 +18,7 @@
         <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
     </div>
 </header>
-<a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+<a href="menu.jsp"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
 
 <div class="table-container">
     <div>

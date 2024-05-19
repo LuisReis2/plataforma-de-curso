@@ -32,7 +32,7 @@ public class CreateParticipantesServlet extends HttpServlet {
         }
 
 
-        resp.sendRedirect("/ListParticipantes");
+        resp.sendRedirect("/ListParticipantes?id=" + idFk_curso);
 
     }
 
@@ -54,6 +54,6 @@ public class CreateParticipantesServlet extends HttpServlet {
         }
 
 
-        resp.sendRedirect("/ListParticipantes");
+        resp.sendRedirect("/ListParticipantes?id=" + idFk_curso);
     }
 }

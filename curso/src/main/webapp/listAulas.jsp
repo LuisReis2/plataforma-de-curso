@@ -42,9 +42,20 @@
          </div>
 
 </header>
-<a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+<a href="menu.jsp"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
 <div class="title-container">
     <h1>Lista de Aulas</h1>
+    <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+
+    <a href="testeAula.jsp?fkCurso=${sessionScope.idCursoAtual}">Criar aula</a>
+    <a href="createParticipantes.jsp?idCursoFk=${sessionScope.idCursoAtual}">Adicionar aluno</a>
+
+    <form action="ListParticipantes" method="get">
+        <input type="hidden" id="id" name="id" value="${sessionScope.idCursoAtual}">
+        <button class="action-button access-right" type="submit">Participantes</button>
+    </form>
+
+    </c:if>
 </div>
 <c:choose>
     <c:when test="${empty aula}">
@@ -64,11 +75,8 @@
                             <input type="hidden" name="idAula" value="${aula.idAula}">
                             <button class="action-button" type="submit">Deletar</button>
                         </form>
-                        <form action="testeAula.jsp" method="get">
-                            <input type="hidden" name="idAula" value="${aula.idAula}">
-                            <input type="hidden" name="fkCurso" value="${aula.fkCurso}">
-                            <button class="action-button" type="submit">Atualizar</button>
-                        </form>
+                        <a  class="action-button" href="testeAula.jsp?fkCurso=${aula.getFkCurso()}&aulaContent=${aula.getContentAula()}&aulaName=${aula.getTitleAula()}" method="get">Atualizar</a>
+
                         <form action="viewAula" method="get">
                             <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
                             <button class="action-button access-right" type="submit">Acessar</button>

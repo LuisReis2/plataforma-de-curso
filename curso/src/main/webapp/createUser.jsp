@@ -25,7 +25,7 @@
      </div>
 
 </header>
- <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+ <a href="menu.jsp"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
 
 <main>
  <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">

@@ -84,7 +84,7 @@
      </div>
 
 </header>
- <a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+ <a href="/find-aulas?id=${sessionScope.idCursoAtual}"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
  <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
 <form action="/create-aula" id="aula-form" method="post">
     <h2>Cadastrar/Atualizar aula </h2>
@@ -92,10 +92,10 @@
     <input id="idAula" name="idAula" type="text" value="${param.idAula}" >
 
     <label for="aula-name">Título da aula:</label>
-    <input id="aulaName" name="aulaName" type="text" required>
+    <input id="aulaName" name="aulaName" type="text" required value="${param.aulaName}">
 
     <label for="aula-content">Conteúdo da aula:</label>
-    <input id="aulaContent" name="aulaContent" type="text" required>
+    <input id="aulaContent" name="aulaContent" type="text" required required value="${param.aulaContent}">
 
     <label for="fkCurso">ID do curso:</label>
     <input id="fkCurso" name="fkCurso" type="text" required value="${param.fkCurso}">

@@ -24,7 +24,7 @@
         <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
     </div>
 </header>
-<a href="/find-aulas?id=${aula.getFkCurso()}"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+<a href="/find-aulas?id=${sessionScope.idCursoAtual}"><img src="Images/back.png" alt="voltar" class="profile-icon"></a>
 
 <main class="main-content">
     <h1 class="aula-title">${aula.getTitleAula()}</h1>

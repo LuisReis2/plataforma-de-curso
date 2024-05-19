@@ -18,7 +18,7 @@
         <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
     </div>
 </header>
-<a href="menu.jsp"><img src="Images/home.png" alt="Perfil" class="profile-icon"></a>
+ <a href="/find-aulas?id=${sessionScope.idCursoAtual}"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
 <div class="table-container">
     <div>
         <h1>Lista de Participantes</h1>
@@ -36,14 +36,9 @@
                     <td>${participante.idCursoFk}</td>
                     <td class="action-buttons">
                         <form action="/delete-participante" method="post">
+                        <input type="hidden" id="idCurso" name="idCurso" value="${participante.idCursoFk}">
                             <input type="hidden" id="idParticipante" name="idParticipante" value="${participante.idParticipante}">
                             <button type="submit">Excluir</button>
-                        </form>
-                        <form action="createParticipantes.jsp" method="get">
-                            <input type="hidden" name="idParticipante" value="${participante.idParticipante}">
-                            <input type="hidden" name="idUserFk" value="${participante.idUserFk}">
-                            <input type="hidden" name="idCursoFk" value="${participante.idCursoFk}">
-                            <button type="submit" class="action-button update-button">Atualizar</button>
                         </form>
                     </td>
                 </tr>
