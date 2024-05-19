@@ -19,7 +19,7 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="Images/logo.png" alt="Logo" class="logo">
+        <a href="menu.jsp"><img src="Images/logo.png" alt="Logo" class="logo"></a>
     </div>
 
      <div class="profile-tab" onclick="toggleProfile()">

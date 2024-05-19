@@ -18,7 +18,7 @@
 <header class="header">
     <link rel="shortcut icon" type="image/x-icon" href="./Images/icon.ico">
     <div class="logo-container">
-        <img src="Images/logo.png" alt="Logo" class="logo">
+        <a href="menu.jsp"><img src="Images/logo.png" alt="Logo" class="logo"></a>
     </div>
     <div class="profile-tab" onclick="toggleProfile()">
         <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
