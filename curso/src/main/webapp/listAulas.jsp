@@ -113,6 +113,7 @@
                             <button class="action-button" type="submit">Deletar</button>
                         </form>
                         <form action="testeAula.jsp" method="get">
+                             <input type="hidden" name="idAula" value="${aula.getIdAula()}">
                             <input type="hidden" name="fkCurso" value="${aula.getFkCurso()}">
                             <input type="hidden" name="aulaContent" value="${aula.getContentAula()}">
                             <input type="hidden" name="aulaName" value="${aula.getTitleAula()}">
