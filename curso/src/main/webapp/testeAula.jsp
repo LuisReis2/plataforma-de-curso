@@ -14,11 +14,12 @@
     <title>Cadastro de Aulas</title>
     <link rel="stylesheet" href="style/menu.css">
     <style>
-        body {
+        .aula-body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
             background-color: #E4D6FF;
             color: rgb(211, 255, 253);
+            height: 500px
         }
 
         h2 {
@@ -28,7 +29,7 @@
             margin-top: 20px;
         }
 
-        form {
+        #aula-form {
             background-color: #FFFFFF;
             padding: 20px;
             border-radius: 8px;
@@ -73,7 +74,7 @@
         }
     </style>
 </head>
-<body>
+<body class="aula-body">
 
 <header class="header">
     <div class="logo-container">
@@ -120,9 +121,9 @@
             <p>Nome: ${sessionScope.UserLog.userName}</p>
             <p>Email: ${sessionScope.UserLog.userEmail}</p>
         </c:if>
-        <form action="/logout" method="get">
-            <button class="action-button logout-button" type="submit">Logout</button>
-        </form>
+           <form action="/logout" method="get">
+               <button class="action-button logout-button" type="submit">Logout</button>
+           </form>
     </div>
 </div>
 
