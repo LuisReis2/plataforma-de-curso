@@ -74,9 +74,10 @@
     <h1>Lista de Aulas</h1>
 </div>
 
-<nav class="menu">
-    <ul class="nav-menu">
+
         <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+            <nav class="menu">
+                <ul class="nav-menu">
             <ul class="nav-menu">
                 <li><a href="testeAula.jsp?fkCurso=${sessionScope.idCursoAtual}" class="action-button">Criar aula</a></li>
                 <li><a href="createParticipantes.jsp?idCursoFk=${sessionScope.idCursoAtual}" class="action-button">Adicionar aluno</a></li>
