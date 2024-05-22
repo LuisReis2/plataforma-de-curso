@@ -4,7 +4,7 @@
 <%
     Locale.setDefault(new Locale("pt", "BR"));
 %>
-<html lang="en">
+<html lang="pt-br">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">

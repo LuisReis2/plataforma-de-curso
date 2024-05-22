@@ -32,7 +32,7 @@
         <label for="idParticipante">ID do Participante</label>
         <input id="idParticipante" name="idParticipante" type="text" value="${param.idParticipante}" >
 
-        <label for="idUserFk">ID do usuário</label>
+        <label for="idUserFk">Email do usuario</label>
         <input id="idUserFk" name="idUserFk" type="text" value="${param.idUserFk}" >
 
         <label for="idCursoFk">ID do curso</label>
