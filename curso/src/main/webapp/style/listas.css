@@ -3,7 +3,6 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #E4D6FF;
     color: rgb(211, 255, 253);
-    height: 2000px;
 }
 
 h1 {
@@ -32,55 +31,31 @@ th {
     color: #FFFFFF;
 }
 
-        .table-container {
-            text-align: center;
-        }
+.table-container {
+    text-align: center;
+}
 
-        .table-container .action-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.table-container .action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .table-container button {
-            background-color: #7b25c2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            margin: 5px;
-        }
+.table-container button {
+    background-color: #7b25c2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
 
-        .table-container button:hover {
-            background-color: #783adb;
-        }
-        .table-container {
-                    text-align: center;
-                }
+.table-container button:hover {
+    background-color: #783adb;
+}
 
-                .table-container .action-buttons {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .table-container button {
-                    background-color: #7b25c2;
-                    color: white;
-                    border: none;
-                    padding: 10px 20px;
-                    cursor: pointer;
-                    border-radius: 5px;
-                    transition: background-color 0.3s;
-                    margin: 5px;
-                }
-
-                .table-container button:hover {
-                    background-color: #783adb;
-                }
-
-
-
-
+body {
+    overflow: hidden;
+}

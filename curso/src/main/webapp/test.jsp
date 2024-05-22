@@ -40,18 +40,25 @@
        </c:forEach>
     </table>
   </div>
-  <footer class="footer">
+<footer class="footer">
+</footer>
+<div class="profile-sidebar" id="profileSidebar">
+    <div class="profile-header">
+        <h2>Meu Perfil</h2>
+        <button class="close-btn" onclick="toggleProfile()">Fechar</button>
+    </div>
+    <div class="profile-body">
+        <c:if test="${sessionScope.UserLog != null}">
+            <p>Nome: ${sessionScope.UserLog.userName}</p>
+            <p>Email: ${sessionScope.UserLog.userEmail}</p>
+        </c:if>
+        <form action="/logout" method="get">
+            <button class="action-button logout-button" type="submit">Logout</button>
+        </form>
+    </div>
+</div>
 
-  </footer>
-
-  <div class="profile-sidebar" id="profileSidebar">
-      <div class="profile-header">
-          <h2>Meu Perfil</h2>
-          <button class="close-btn" onclick="toggleProfile()">Fechar</button>
-      </div>
-  </div>
-
-  <script src="scripts/sidebar.js"></script>
+<script src="scripts/sidebar.js"></script>
 
 </body>
 </html>

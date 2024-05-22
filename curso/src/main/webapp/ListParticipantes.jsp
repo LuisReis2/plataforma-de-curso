@@ -22,27 +22,31 @@
 <div class="table-container">
     <div>
         <h1>Lista de Participantes</h1>
-        <table border="1">
-            <tr>
-                <th>ID Participante</th>
-                <th>ID do usuário participante</th>
-                <th>ID do curso pertencente</th>
-                <th>Actions</th>
-            </tr>
-            <c:forEach var="participante" items="${participantes}">
+        <table>
+            <thead>
                 <tr>
-                    <td>${participante.idParticipante}</td>
-                    <td>${participante.idUserFk}</td>
-                    <td>${participante.idCursoFk}</td>
-                    <td class="action-buttons">
-                        <form action="/delete-participante" method="post">
-                        <input type="hidden" id="idCurso" name="idCurso" value="${participante.idCursoFk}">
-                            <input type="hidden" id="idParticipante" name="idParticipante" value="${participante.idParticipante}">
-                            <button type="submit">Excluir</button>
-                        </form>
-                    </td>
+                    <th>ID Participante</th>
+                    <th>ID do usuário participante</th>
+                    <th>ID do curso pertencente</th>
+                    <th>Actions</th>
                 </tr>
-            </c:forEach>
+            </thead>
+            <tbody>
+                <c:forEach var="participante" items="${participantes}">
+                    <tr>
+                        <td>${participante.idParticipante}</td>
+                        <td>${participante.idUserFk}</td>
+                        <td>${participante.idCursoFk}</td>
+                        <td class="action-buttons">
+                            <form action="/delete-participante" method="post">
+                                <input type="hidden" id="idCurso" name="idCurso" value="${participante.idCursoFk}">
+                                <input type="hidden" id="idParticipante" name="idParticipante" value="${participante.idParticipante}">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
         </table>
     </div>
 </div>
@@ -61,8 +65,8 @@
             <p>Email: ${sessionScope.UserLog.userEmail}</p>
         </c:if>
         <form action="/logout" method="get">
-                    <button class="action-button logout-button" type="submit">Logout</button>
-                </form>
+            <button class="action-button logout-button" type="submit">Logout</button>
+        </form>
     </div>
 </div>
 

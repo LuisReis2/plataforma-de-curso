@@ -26,8 +26,36 @@
         }
 
         .curso-container .action-button {
-            margin: 5px; /
+            margin: 5px;
         }
+
+
+        body {
+            overflow: hidden;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+.menu {
+    background-color: #7C6C9A;
+    padding: 20px;
+    height: 20px;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-right: 20px;
+ }
+
+
+
+
     </style>
 </head>
 <body>
@@ -38,25 +66,33 @@
     </div>
 
     <div class="profile-tab" onclick="toggleProfile()">
-                    <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
-         </div>
-
+        <img src="Images/perfil.png" alt="Perfil" class="profile-icon">
+    </div>
 </header>
-<a href="menu.jsp"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
+
 <div class="title-container">
     <h1>Lista de Aulas</h1>
-    <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
-
-    <a href="testeAula.jsp?fkCurso=${sessionScope.idCursoAtual}">Criar aula</a>
-    <a href="createParticipantes.jsp?idCursoFk=${sessionScope.idCursoAtual}">Adicionar aluno</a>
-
-    <form action="ListParticipantes" method="get">
-        <input type="hidden" id="id" name="id" value="${sessionScope.idCursoAtual}">
-        <button class="action-button access-right" type="submit">Participantes</button>
-    </form>
-
-    </c:if>
 </div>
+
+<nav class="menu">
+    <ul class="nav-menu">
+        <c:if test="${sessionScope.UserLog.getUserType() eq 'ADM' || sessionScope.UserLog.getUserType() eq 'PROFESSOR'}">
+            <ul class="nav-menu">
+                <li><a href="testeAula.jsp?fkCurso=${sessionScope.idCursoAtual}" class="action-button">Criar aula</a></li>
+                <li><a href="createParticipantes.jsp?idCursoFk=${sessionScope.idCursoAtual}" class="action-button">Adicionar aluno</a></li>
+                <li><a href="ListParticipantes?id=${sessionScope.idCursoAtual}" class="action-button">Participantes</a></li>
+            </ul>
+        </c:if>
+
+
+    </ul>
+</nav>
+
+
+
+
+<a href="menu.jsp"><img src="Images/back.png" alt="Perfil" class="profile-icon"></a>
+
 <c:choose>
     <c:when test="${empty aula}">
         <p>Não há aulas disponíveis.</p>
@@ -75,14 +111,19 @@
                             <input type="hidden" name="idAula" value="${aula.idAula}">
                             <button class="action-button" type="submit">Deletar</button>
                         </form>
-                        <a  class="action-button" href="testeAula.jsp?fkCurso=${aula.getFkCurso()}&aulaContent=${aula.getContentAula()}&aulaName=${aula.getTitleAula()}" method="get">Atualizar</a>
-
+                        <form action="testeAula.jsp" method="get">
+                            <input type="hidden" name="fkCurso" value="${aula.getFkCurso()}">
+                            <input type="hidden" name="aulaContent" value="${aula.getContentAula()}">
+                            <input type="hidden" name="aulaName" value="${aula.getTitleAula()}">
+                            <button class="action-button" type="submit">Atualizar</button>
+                        </form>
                         <form action="viewAula" method="get">
-                            <input type="hidden" id="idAula" name="idAula" value="${aula.idAula}">
+                            <input type="hidden" name="idAula" value="${aula.idAula}">
                             <button class="action-button access-right" type="submit">Acessar</button>
                         </form>
                     </div>
                 </c:if>
+
 
                 <c:if test="${sessionScope.UserLog.getUserType() ne 'ADM' && sessionScope.UserLog.getUserType() ne 'PROFESSOR'}">
                     <div class="divfoda">
